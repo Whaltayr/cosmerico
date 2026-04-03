@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produtos — El Vayon Cosméticos</title>
+  <meta name="description" content="Todos os produtos El Vayon. Skincare, maquilhagem, perfumaria e cabelo das melhores marcas."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="elvayon.css"/>
+</head>
+<body class="page-produtos">
+
+<!-- ══ NAV (same as home) ════════════════════════ -->
+<header class="nav" id="nav" role="banner">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="El Vayon página inicial">
+      <span class="nav__logo-text"><em>El</em> Vayon</span>
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+      <a href="index.html#parceiros" class="nav__link">Marcas</a>
+      <a href="produtos.html" class="nav__link nav__link--active">Produtos</a>
+      <a href="index.html#servicos" class="nav__link">Serviços</a>
+      <a href="index.html#galeria" class="nav__link">Galeria</a>
+      <a href="index.html#contactos" class="nav__link">Contactos</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="nav__cart-btn" id="navCartBtn" aria-label="Ver carrinho">
+        <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="17" y2="6"/><path d="M13 10a3 3 0 01-6 0"/></svg>
+        <span class="nav__cart-count" id="navCartCount" aria-live="polite">0</span>
+      </button>
+      <button class="nav__burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ PAGE HEADER ═══════════════════════════════ -->
+<div class="page-header">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Início</a> / <span>Produtos</span></p>
+    <h1 class="page-header__title">Todos os <em>Produtos</em></h1>
+    <p class="page-header__sub">Cosméticos das melhores marcas, entregues em Namibe.</p>
+  </div>
+</div>
+
+<!-- ══ PRODUTOS SECÇÃO ═══════════════════════════ -->
+<section class="produtos-page" aria-label="Catálogo de produtos">
+  <div class="container">
+    <div class="produtos-page__layout">
+
+      <!-- SIDEBAR FILTROS -->
+      <aside class="filtros-sidebar" id="filtrosSidebar" aria-label="Filtros de produtos">
+        <div class="filtros-sidebar__header">
+          <h2>Filtros</h2>
+          <button class="filtros-clear" id="filtrosClear" aria-label="Limpar filtros">Limpar tudo</button>
+        </div>
+
+        <div class="filtro-group">
+          <h3>Categoria</h3>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="all" checked/> Todos
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="skincare"/> Skincare
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="maquilhagem"/> Maquilhagem
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="perfumaria"/> Perfumaria
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="cabelo"/> Cabelo
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="cat" value="unhas"/> Unhas
+          </label>
+        </div>
+
+        <div class="filtro-group">
+          <h3>Marca</h3>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="avon"/> Avon
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="nivea"/> Nivea
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="loreal"/> L'Oréal
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="maybelline"/> Maybelline
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="dove"/> Dove
+          </label>
+          <label class="filtro-check">
+            <input type="checkbox" name="brand" value="garnier"/> Garnier
+          </label>
+        </div>
+
+        <div class="filtro-group">
+          <h3>Ordenar</h3>
+          <label class="filtro-radio">
+            <input type="radio" name="sort" value="default" checked/> Relevância
+          </label>
+          <label class="filtro-radio">
+            <input type="radio" name="sort" value="price-asc"/> Preço: menor
+          </label>
+          <label class="filtro-radio">
+            <input type="radio" name="sort" value="price-desc"/> Preço: maior
+          </label>
+          <label class="filtro-radio">
+            <input type="radio" name="sort" value="name"/> A → Z
+          </label>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS AREA -->
+      <div class="produtos-page__main">
+        <!-- Mobile filter toggle -->
+        <button class="filtros-toggle" id="filtrosToggle" aria-expanded="false" aria-controls="filtrosSidebar">
+          <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 5h14M6 10h8M9 15h2" stroke-linecap="round"/></svg>
+          Filtros
+          <span class="filtros-toggle__count" id="filtrosCount"></span>
+        </button>
+
+        <p class="produtos-count" id="produtosCount" aria-live="polite">A mostrar todos os produtos</p>
+
+        <div class="prod-grid prod-grid--page" id="produtosGrid">
+
+          <!-- 12 products for the page -->
+          <article class="prod-card"
+            data-cat="skincare" data-brand="avon" data-id="1"
+            data-name="Sérum Vitamina C" data-price="8500"
+            data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+            data-desc="Sérum concentrado com 20% de Vitamina C. Ilumina e uniformiza o tom da pele. Resultados em 2 semanas.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Sérum Vitamina C" loading="lazy"/>
+              <div class="prod-card__badge">Avon</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Sérum Vitamina C ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Skincare</span>
+              <h3 class="prod-card__name">Sérum Vitamina C</h3>
+              <p class="prod-card__desc">Vitamina C 20%. Ilumina e protege.</p>
+              <p class="prod-card__price">Kz 8.500</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="maquilhagem" data-brand="maybelline" data-id="2"
+            data-name="Batom Nude Satin" data-price="4200"
+            data-img="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80"
+            data-desc="Batom com acabamento acetinado de longa duração. Tom nude rosé.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80" alt="Batom Nude Satin" loading="lazy"/>
+              <div class="prod-card__badge">Maybelline</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Batom ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Maquilhagem</span>
+              <h3 class="prod-card__name">Batom Nude Satin</h3>
+              <p class="prod-card__desc">Longa duração, acabamento acetinado.</p>
+              <p class="prod-card__price">Kz 4.200</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="perfumaria" data-brand="avon" data-id="3"
+            data-name="Rose Noir EDP" data-price="18900"
+            data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+            data-desc="Fragrância floral-oriental. Notas de rosa, sândalo e âmbar. 50ml.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80" alt="Rose Noir EDP" loading="lazy"/>
+              <div class="prod-card__badge">Avon</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Rose Noir ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Perfumaria</span>
+              <h3 class="prod-card__name">Rose Noir EDP</h3>
+              <p class="prod-card__desc">Floral-oriental. Rosa, sândalo, âmbar.</p>
+              <p class="prod-card__price">Kz 18.900</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="cabelo" data-brand="nivea" data-id="4"
+            data-name="Máscara Capilar Gold" data-price="6300"
+            data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
+            data-desc="Tratamento intensivo argan + queratina. Elimina frizz.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80" alt="Máscara Capilar Gold" loading="lazy"/>
+              <div class="prod-card__badge">Nivea</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Máscara ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Cabelo</span>
+              <h3 class="prod-card__name">Máscara Capilar Gold</h3>
+              <p class="prod-card__desc">Argan + queratina. Brilho intenso.</p>
+              <p class="prod-card__price">Kz 6.300</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="skincare" data-brand="loreal" data-id="5"
+            data-name="Hidratante FPS 50" data-price="7400"
+            data-img="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80"
+            data-desc="Proteção solar FPS 50 com ácido hialurónico. Textura leve.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80" alt="Hidratante FPS 50" loading="lazy"/>
+              <div class="prod-card__badge">L'Oréal</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Hidratante ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Skincare</span>
+              <h3 class="prod-card__name">Hidratante FPS 50</h3>
+              <p class="prod-card__desc">FPS 50. Ácido hialurónico. Não oleoso.</p>
+              <p class="prod-card__price">Kz 7.400</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="maquilhagem" data-brand="maybelline" data-id="6"
+            data-name="Foundation Glow Serum" data-price="9800"
+            data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+            data-desc="Base sérum cobertura leve, FPS 30. 20 tons disponíveis.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Foundation Glow Serum" loading="lazy"/>
+              <div class="prod-card__badge">Maybelline</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Foundation ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Maquilhagem</span>
+              <h3 class="prod-card__name">Foundation Glow Serum</h3>
+              <p class="prod-card__desc">Base sérum. FPS 30. 20 tons.</p>
+              <p class="prod-card__price">Kz 9.800</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="maquilhagem" data-brand="maybelline" data-id="7"
+            data-name="Paleta Sombras Nude" data-price="12500"
+            data-img="https://images.unsplash.com/photo-1631214500004-dd8f28e29f04?w=400&q=80"
+            data-desc="12 tons neutros e terrosos. Matte, shimmer e glitter.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1631214500004-dd8f28e29f04?w=400&q=80" alt="Paleta Sombras Nude" loading="lazy"/>
+              <div class="prod-card__badge">Maybelline</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Paleta ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Maquilhagem</span>
+              <h3 class="prod-card__name">Paleta Sombras Nude</h3>
+              <p class="prod-card__desc">12 tons. Matte + shimmer + glitter.</p>
+              <p class="prod-card__price">Kz 12.500</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="skincare" data-brand="avon" data-id="8"
+            data-name="Tónico Rose Water" data-price="4800"
+            data-img="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&q=80"
+            data-desc="Água de rosas pura. Hidrata e equilibra o pH. Spray 150ml.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&q=80" alt="Tónico Rose Water" loading="lazy"/>
+              <div class="prod-card__badge">Avon</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Tónico ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Skincare</span>
+              <h3 class="prod-card__name">Tónico Rose Water</h3>
+              <p class="prod-card__desc">Água de rosas. pH equilibrado. 150ml.</p>
+              <p class="prod-card__price">Kz 4.800</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="perfumaria" data-brand="avon" data-id="9"
+            data-name="Body Mist Vanilla &amp; Coco" data-price="5600"
+            data-img="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&q=80"
+            data-desc="Notas de baunilha e coco. Duração suave 4h. Refrescante.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&q=80" alt="Body Mist Vanilla Coco" loading="lazy"/>
+              <div class="prod-card__badge">Avon</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Body Mist ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Perfumaria</span>
+              <h3 class="prod-card__name">Body Mist Vanilla & Coco</h3>
+              <p class="prod-card__desc">Baunilha + coco. Refrescante e suave.</p>
+              <p class="prod-card__price">Kz 5.600</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="cabelo" data-brand="garnier" data-id="10"
+            data-name="Óleo de Argan Puro" data-price="8900"
+            data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80"
+            data-desc="Óleo 100% puro. Nutre, hidrata e dá brilho intenso. 30ml.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80" alt="Óleo de Argan" loading="lazy"/>
+              <div class="prod-card__badge">Garnier</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Óleo ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Cabelo</span>
+              <h3 class="prod-card__name">Óleo de Argan Puro</h3>
+              <p class="prod-card__desc">100% puro. Brilho e nutrição. 30ml.</p>
+              <p class="prod-card__price">Kz 8.900</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="maquilhagem" data-brand="maybelline" data-id="11"
+            data-name="Blush Rosé Petal" data-price="5100"
+            data-img="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80"
+            data-desc="Blush em pó rosé natural. Pigmentação suave. Inclui espelho.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Blush Rosé Petal" loading="lazy"/>
+              <div class="prod-card__badge">Maybelline</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Blush ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Maquilhagem</span>
+              <h3 class="prod-card__name">Blush Rosé Petal</h3>
+              <p class="prod-card__desc">Rosé natural. Suave. Com espelho.</p>
+              <p class="prod-card__price">Kz 5.100</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+          <article class="prod-card"
+            data-cat="unhas" data-brand="avon" data-id="12"
+            data-name="Kit Unhas Gel Starter" data-price="15000"
+            data-img="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80"
+            data-desc="Kit completo para gel em casa. Lâmpada UV, 6 cores + top coat.">
+            <div class="prod-card__img">
+              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Kit Unhas Gel" loading="lazy"/>
+              <div class="prod-card__badge">Avon</div>
+              <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Kit ao carrinho">
+                <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              </button>
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-card__cat">Unhas</span>
+              <h3 class="prod-card__name">Kit Unhas Gel Starter</h3>
+              <p class="prod-card__desc">UV + 6 cores + top coat. Completo.</p>
+              <p class="prod-card__price">Kz 15.000</p>
+              <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar ao carrinho</button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="no-results" id="noResults" hidden>
+          <p>Nenhum produto encontrado com estes filtros.</p>
+          <button class="btn-ghost" id="noResultsClear">Limpar filtros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER (compact) ══════════════════════════ -->
+<footer class="footer footer--compact" role="contentinfo">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© 2025 El Vayon Cosméticos · Namibe, Angola</p>
+      <a href="index.html">← Voltar ao início</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ CARRINHO DRAWER ════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+<div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+  <div class="cart-drawer__header">
+    <h2>O seu carrinho</h2>
+    <button class="cart-drawer__close" id="cartClose" aria-label="Fechar carrinho">
+      <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 48 48" fill="none" width="44" stroke="currentColor" stroke-width="1" opacity=".2" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="M18 20h12M20 16l4-4 4 4M24 28v-8"/></svg>
+      <p>O seu carrinho está vazio.</p>
+    </div>
+  </div>
+  <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+    <div class="cart-client">
+      <label for="clientName">O seu nome <span aria-hidden="true">*</span></label>
+      <input type="text" id="clientName" placeholder="Ex: Ana Silva" autocomplete="name" aria-required="true"/>
+    </div>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cartTotal">Kz 0</strong>
+    </div>
+    <button class="btn-checkout" id="btnCheckout">
+      <svg viewBox="0 0 20 20" fill="currentColor" width="16" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
+      Finalizar pelo WhatsApp
+    </button>
+    <p class="cart-note">A encomenda será confirmada via WhatsApp.</p>
+  </div>
+</div>
+
+<!-- Cart FAB -->
+<button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+  <svg viewBox="0 0 20 20" fill="none" width="20" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="17" y2="6"/><path d="M13 10a3 3 0 01-6 0"/></svg>
+  <span class="cart-fab__badge" id="cartFabBadge" aria-live="polite">0</span>
+</button>
+
+<a href="https://wa.me/244933301330" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="22" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <span class="wa-float__pulse" aria-hidden="true"></span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="elvayon.js"></script>
+</body>
+</html>

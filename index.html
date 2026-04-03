@@ -3,511 +3,265 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>El Vayon — Cosméticos de Luxo · Namibe, Angola</title>
-  <meta name="description" content="El Vayon: a sofisticação que a sua pele merece. Curadoria dos melhores cosméticos mundiais para a mulher angolana, no coração de Namibe."/>
-  <meta name="keywords" content="cosméticos Namibe, maquilhagem Angola, skincare Namibe, perfumaria Angola, El Vayon"/>
-  <meta property="og:title" content="El Vayon — Cosméticos de Luxo"/>
-  <meta property="og:description" content="A sofisticação que a sua pele merece."/>
-  <meta property="og:type" content="website"/>
-
+  <title>El Vayon — Cosméticos & Beleza · Namibe, Angola</title>
+  <meta name="description" content="El Vayon: cosméticos, nail design, barbearia e muito mais no coração de Namibe. Representantes Avon em Angola."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="elvayon.css"/>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor" aria-hidden="true"></div>
-
-<!-- ══ HEADER ════════════════════════════════════ -->
-<header class="header" id="header" role="banner">
-  <div class="header__inner">
-    <button class="header__burger" id="headerBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navDrawer">
-      <span></span><span></span><span></span>
-    </button>
-    <a href="#home" class="header__logo" aria-label="El Vayon — Página inicial">
-      <span class="header__logo-em">El</span> Vayon
+<!-- ══ NAV ═══════════════════════════════════════ -->
+<header class="nav" id="nav" role="banner">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="El Vayon página inicial">
+      <!-- SUBSTITUIR: <img src="logo.png" alt="El Vayon" class="nav__logo-img"/> -->
+      <span class="nav__logo-text"><em>El</em> Vayon</span>
     </a>
-    <div class="header__right">
-      <button class="header__icon-btn" id="searchToggle" aria-label="Pesquisar">
-        <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.4"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4" stroke-linecap="round"/></svg>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+      <a href="#parceiros" class="nav__link">Marcas</a>
+      <a href="#produtos-home" class="nav__link">Produtos</a>
+      <a href="#servicos" class="nav__link">Serviços</a>
+      <a href="#galeria" class="nav__link">Galeria</a>
+      <a href="#contactos" class="nav__link">Contactos</a>
+      <a href="produtos.html" class="nav__cta-mobile">Ver todos os produtos →</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="produtos.html" class="nav__shop-btn" aria-label="Ver loja">
+        <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="17" y2="6"/><path d="M13 10a3 3 0 01-6 0"/></svg>
+        <span>Loja</span>
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
       </button>
-      <button class="header__icon-btn header__cart" id="cartToggle" aria-label="Carrinho de compras">
-        <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.4"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.4 4H17M10 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="cart-badge" id="cartBadge" aria-label="Itens no carrinho">0</span>
-      </button>
-    </div>
-  </div>
-  <div class="search-bar" id="searchBar" aria-hidden="true">
-    <div class="search-bar__inner">
-      <input type="search" id="searchInput" placeholder="Pesquisar produto..." autocomplete="off" aria-label="Campo de pesquisa"/>
-      <button class="search-bar__close" id="searchClose" aria-label="Fechar pesquisa">✕</button>
     </div>
   </div>
 </header>
-
-<!-- ══ NAV DRAWER ════════════════════════════════ -->
-<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
-<nav class="nav-drawer" id="navDrawer" aria-label="Menu principal" role="navigation">
-  <button class="nav-drawer__close" id="drawerClose" aria-label="Fechar menu">✕</button>
-  <div class="nav-drawer__logo">El Vayon</div>
-  <ul class="nav-drawer__links" role="menubar">
-    <li><a href="#home"        role="menuitem">Início</a></li>
-    <li><a href="#categorias"  role="menuitem">Categorias</a></li>
-    <li><a href="#produtos"    role="menuitem">Produtos</a></li>
-    <li><a href="#sobre"       role="menuitem">Sobre Nós</a></li>
-    <li><a href="#servicos"    role="menuitem">Serviços</a></li>
-    <li><a href="#contactos"   role="menuitem">Contactos</a></li>
-  </ul>
-  <div class="nav-drawer__socials">
-    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" width="20" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.14 8.14 0 0 0 4.77 1.52V6.77a4.85 4.85 0 0 1-1-.08z"/></svg>
-    </a>
-  </div>
-</nav>
-
-<!-- ══ CART DRAWER ════════════════════════════════ -->
-<div class="cart-drawer" id="cartDrawer" aria-label="Carrinho de compras">
-  <div class="cart-drawer__header">
-    <h2>
-      <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.4 4H17M10 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      O Seu Carrinho
-    </h2>
-    <button class="cart-drawer__close" id="cartClose" aria-label="Fechar carrinho">✕</button>
-  </div>
-  <div class="cart-drawer__items" id="cartItems">
-    <div class="cart-empty" id="cartEmpty">
-      <svg viewBox="0 0 48 48" fill="none" width="40" stroke="currentColor" stroke-width="1.2" opacity=".25" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="M16 22h16M20 18l4-4 4 4M24 30v-12"/></svg>
-      <p>O seu carrinho está vazio.</p>
-    </div>
-  </div>
-  <div class="cart-drawer__footer" id="cartFooter" style="display:none">
-    <div class="cart-total">
-      <span>Total</span>
-      <strong id="cartTotal">Kz 0</strong>
-    </div>
-    <button class="btn-cart-wa" id="cartWa">
-      <svg viewBox="0 0 20 20" fill="currentColor" width="16" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
-      Finalizar pelo WhatsApp
-    </button>
-    <p class="cart-note">Enviaremos a sua encomenda via WhatsApp para confirmação.</p>
-  </div>
-</div>
-<div class="cart-overlay-bg" id="cartOverlayBg"></div>
-
-<!-- ══ QUICK VIEW MODAL ═══════════════════════════ -->
-<div class="quickview-overlay" id="qvOverlay" aria-hidden="true">
-  <div class="quickview-modal" id="qvModal" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
-    <button class="quickview-close" id="qvClose" aria-label="Fechar">✕</button>
-    <div class="quickview-inner">
-      <div class="quickview-img">
-        <img id="qvImg" src="" alt=""/>
-      </div>
-      <div class="quickview-body">
-        <p class="qv-cat" id="qvCat"></p>
-        <h2 id="qvTitle"></h2>
-        <p class="qv-desc" id="qvDesc"></p>
-        <div class="qv-price-row">
-          <span class="qv-price" id="qvPrice"></span>
-        </div>
-        <button class="btn-primary" id="qvAdd">Adicionar ao Carrinho</button>
-        <a class="btn-wa-qv" id="qvWa" href="#" target="_blank" rel="noopener">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="14" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
-          Encomendar pelo WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <main>
 
 <!-- ══ HERO ══════════════════════════════════════ -->
 <section class="hero" id="home" aria-labelledby="heroTitle">
   <div class="hero__bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1800&q=90" alt="" class="hero__img" loading="eager" fetchpriority="high"/>
-    <div class="hero__veil"></div>
+    <!-- SUBSTITUIR: <img src="img/hero.jpg" alt="" class="hero__img" loading="eager" fetchpriority="high"/> -->
+    <div class="hero__img hero__img--placeholder"></div>
+    <div class="hero__overlay"></div>
   </div>
   <div class="hero__content">
-    <p class="hero__eyebrow">Cosméticos de Luxo · Namibe, Angola</p>
+    <p class="hero__tag" aria-hidden="true">✦ Namibe, Angola</p>
     <h1 class="hero__title" id="heroTitle">
-      A sofisticação<br/>que a sua pele<br/><em>merece.</em>
+      Beleza que<br/><em>transforma.</em>
     </h1>
-    <p class="hero__sub">Curadoria exclusiva dos melhores cosméticos mundiais,<br/>para a mulher angolana.</p>
-    <a href="#categorias" class="btn-hero" aria-label="Ver coleção de cosméticos">
-      <span>Ver Coleção</span>
-      <span class="btn-hero__arrow" aria-hidden="true">→</span>
-    </a>
+    <p class="hero__sub">Cosméticos de qualidade, nail design e barbearia no coração de Namibe. Representantes oficiais Avon.</p>
+    <div class="hero__btns">
+      <a href="produtos.html" class="btn-primary">Ver Produtos</a>
+      <a href="#servicos" class="btn-ghost">Os nossos serviços</a>
+    </div>
   </div>
   <div class="hero__scroll" aria-hidden="true">
-    <div class="hero__scroll-track"><div class="hero__scroll-bar"></div></div>
+    <div class="hero__scroll-bar"></div>
   </div>
 </section>
 
-<!-- ══ CATEGORIAS ════════════════════════════════ -->
-<section class="categorias" id="categorias" aria-labelledby="catsTitle">
+<!-- ══ PARCEIROS ═════════════════════════════════ -->
+<section class="parceiros" id="parceiros" aria-labelledby="parceirosTitle">
   <div class="container">
-    <div class="section-head centered">
-      <p class="section-eyebrow">The Curated Selection</p>
-      <h2 class="section-title" id="catsTitle">As nossas <em>categorias</em></h2>
+    <div class="parceiros__header">
+      <p class="eyebrow">Marcas que representamos</p>
+      <h2 class="parceiros__title" id="parceirosTitle">Parceiros <em>de confiança</em></h2>
     </div>
-    <div class="cats-grid">
-
-      <div class="cat-card cat-card--large" data-cat="skincare">
-        <div class="cat-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=85" alt="Skincare — cuidados de pele" loading="lazy"/>
+    <div class="parceiros__track-wrap" aria-label="Marcas parceiras">
+      <div class="parceiros__track" id="parceirosTrack">
+        <!-- SUBSTITUIR logos reais — duplicados para loop infinito -->
+        <div class="brand-logo">
+          <!-- <img src="logos/avon.png" alt="Avon"/> -->
+          <span class="brand-logo__text">AVON</span>
         </div>
-        <div class="cat-card__body">
-          <h3>Skincare</h3>
-          <p>Séruns, hidratantes e tratamentos para uma pele radiante.</p>
-          <button class="cat-card__link" data-filter="skincare" aria-label="Explorar produtos de Skincare">
-            Explorar <span aria-hidden="true">→</span>
-          </button>
+        <div class="brand-logo">
+          <span class="brand-logo__text">NIVEA</span>
         </div>
+        <div class="brand-logo">
+          <span class="brand-logo__text">L'ORÉAL</span>
+        </div>
+        <div class="brand-logo">
+          <span class="brand-logo__text">MAYBELLINE</span>
+        </div>
+        <div class="brand-logo">
+          <span class="brand-logo__text">DOVE</span>
+        </div>
+        <div class="brand-logo">
+          <span class="brand-logo__text">GARNIER</span>
+        </div>
+        <!-- duplicados para loop contínuo -->
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">AVON</span></div>
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">NIVEA</span></div>
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">L'ORÉAL</span></div>
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">MAYBELLINE</span></div>
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">DOVE</span></div>
+        <div class="brand-logo" aria-hidden="true"><span class="brand-logo__text">GARNIER</span></div>
       </div>
-
-      <div class="cat-card" data-cat="maquilhagem">
-        <div class="cat-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600&q=80" alt="Maquilhagem de luxo" loading="lazy"/>
-        </div>
-        <div class="cat-card__body">
-          <h3>Maquilhagem</h3>
-          <p>Batons, foundations e olhos que falam por si.</p>
-          <button class="cat-card__link" data-filter="maquilhagem" aria-label="Explorar produtos de Maquilhagem">
-            Explorar <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="cat-card" data-cat="perfumaria">
-        <div class="cat-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Perfumaria selecionada" loading="lazy"/>
-        </div>
-        <div class="cat-card__body">
-          <h3>Perfumaria</h3>
-          <p>Fragrâncias de autor que definem o seu estilo único.</p>
-          <button class="cat-card__link" data-filter="perfumaria" aria-label="Explorar Perfumaria">
-            Explorar <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="cat-card" data-cat="cabelo">
-        <div class="cat-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=600&q=80" alt="Cuidados de cabelo" loading="lazy"/>
-        </div>
-        <div class="cat-card__body">
-          <h3>Cuidados de Cabelo</h3>
-          <p>Máscaras, óleos e tratamentos para cabelos saudáveis.</p>
-          <button class="cat-card__link" data-filter="cabelo" aria-label="Explorar Cuidados de Cabelo">
-            Explorar <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ PRODUTOS COM FILTROS ══════════════════════ -->
-<section class="produtos" id="produtos" aria-labelledby="produtosTitle">
+<!-- ══ BESTSELLERS ═══════════════════════════════ -->
+<section class="produtos-home" id="produtos-home" aria-labelledby="bestsellersTitle">
   <div class="container">
-
-    <!-- Header with filters -->
-    <div class="produtos__header">
+    <div class="section-head">
       <div>
-        <p class="section-eyebrow">A nossa selecção</p>
-        <h2 class="section-title" id="produtosTitle">Todos os <em>Produtos</em></h2>
+        <p class="eyebrow">Os mais pedidos</p>
+        <h2 class="section-title" id="bestsellersTitle">Bestsellers</h2>
       </div>
-      <div class="filter-bar" role="group" aria-label="Filtrar por categoria">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="skincare">Skincare</button>
-        <button class="filter-btn" data-filter="maquilhagem">Maquilhagem</button>
-        <button class="filter-btn" data-filter="perfumaria">Perfumaria</button>
-        <button class="filter-btn" data-filter="cabelo">Cabelo</button>
+      <div class="produtos-home__filters" role="group" aria-label="Filtrar produtos">
+        <div class="filter-group">
+          <button class="filter-pill active" data-filter-type="cat" data-value="all">Todos</button>
+          <button class="filter-pill" data-filter-type="cat" data-value="skincare">Skincare</button>
+          <button class="filter-pill" data-filter-type="cat" data-value="maquilhagem">Maquilhagem</button>
+          <button class="filter-pill" data-filter-type="cat" data-value="perfumaria">Perfumaria</button>
+          <button class="filter-pill" data-filter-type="cat" data-value="cabelo">Cabelo</button>
+        </div>
+        <div class="filter-group">
+          <button class="filter-pill active" data-filter-type="brand" data-value="all">Todas as marcas</button>
+          <button class="filter-pill" data-filter-type="brand" data-value="avon">Avon</button>
+          <button class="filter-pill" data-filter-type="brand" data-value="nivea">Nivea</button>
+          <button class="filter-pill" data-filter-type="brand" data-value="loreal">L'Oréal</button>
+          <button class="filter-pill" data-filter-type="brand" data-value="maybelline">Maybelline</button>
+        </div>
       </div>
     </div>
 
-    <!-- Product count -->
-    <p class="filter-count" id="filterCount" aria-live="polite">A mostrar todos os produtos</p>
+    <div class="prod-grid" id="homeGrid">
 
-    <!-- Products grid -->
-    <div class="produtos-grid" id="produtosGrid" role="list">
-
-      <article class="prod-card" role="listitem" data-id="1" data-filter="skincare"
-        data-name="Sérum Vitamina C"
-        data-cat="Skincare"
-        data-price="8500"
+      <article class="prod-card"
+        data-cat="skincare" data-brand="avon" data-id="1"
+        data-name="Sérum Vitamina C" data-price="8500"
         data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
-        data-desc="Sérum concentrado com 20% de Vitamina C pura. Uniformiza o tom, ilumina e protege contra os radicais livres. Resultados visíveis em 2 semanas."
-        aria-label="Sérum Vitamina C — Kz 8.500">
-        <div class="prod-card__img-wrap">
+        data-desc="Sérum concentrado com 20% de Vitamina C. Ilumina e uniformiza o tom.">
+        <div class="prod-card__img">
           <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Sérum Vitamina C" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Sérum Vitamina C">Quick View</button>
+          <div class="prod-card__badge">Avon</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Sérum Vitamina C ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Skincare</p>
-          <h3>Sérum Vitamina C</h3>
-          <p class="prod-price">Kz 8.500</p>
-          <button class="prod-card__add" aria-label="Adicionar Sérum Vitamina C ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Skincare</span>
+          <h3 class="prod-card__name">Sérum Vitamina C</h3>
+          <p class="prod-card__price">Kz 8.500</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
-      <article class="prod-card" role="listitem" data-id="2" data-filter="maquilhagem"
-        data-name="Batom Nude Satin"
-        data-cat="Maquilhagem"
-        data-price="4200"
+      <article class="prod-card"
+        data-cat="maquilhagem" data-brand="maybelline" data-id="2"
+        data-name="Batom Nude Satin" data-price="4200"
         data-img="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80"
-        data-desc="Batom de longa duração com acabamento acetinado. Hidratante e confortável, com pigmentação intensa em tom nude rosé."
-        aria-label="Batom Nude Satin — Kz 4.200">
-        <div class="prod-card__img-wrap">
+        data-desc="Batom com acabamento acetinado de longa duração. Tom nude rosé.">
+        <div class="prod-card__img">
           <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80" alt="Batom Nude Satin" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Batom Nude Satin">Quick View</button>
+          <div class="prod-card__badge">Maybelline</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Batom Nude ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Maquilhagem</p>
-          <h3>Batom Nude Satin</h3>
-          <p class="prod-price">Kz 4.200</p>
-          <button class="prod-card__add" aria-label="Adicionar Batom ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Maquilhagem</span>
+          <h3 class="prod-card__name">Batom Nude Satin</h3>
+          <p class="prod-card__price">Kz 4.200</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
-      <article class="prod-card" role="listitem" data-id="3" data-filter="perfumaria"
-        data-name="Eau de Parfum Rose Noir"
-        data-cat="Perfumaria"
-        data-price="18900"
-        data-img="https://zaoud.it/cdn/shop/files/rose-noir-perfume-bottle-surrounded-with-rose-and-vanilla-against-white-background.jpg?v=1728413400&width=1946"
-        data-desc="Uma fragrância floral-oriental com notas de rosa turca, sândalo e âmbar. Intensa, misteriosa e inesquecível. 50ml."
-        aria-label="Eau de Parfum Rose Noir — Kz 18.900">
-        <div class="prod-card__img-wrap">
-          <img src="https://zaoud.it/cdn/shop/files/rose-noir-perfume-bottle-surrounded-with-rose-and-vanilla-against-white-background.jpg?v=1728413400&width=1946" alt="Eau de Parfum Rose Noir" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Rose Noir">Quick View</button>
+      <article class="prod-card"
+        data-cat="perfumaria" data-brand="avon" data-id="3"
+        data-name="Eau de Parfum Rose Noir" data-price="18900"
+        data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+        data-desc="Fragrância floral-oriental. Notas de rosa, sândalo e âmbar. 50ml.">
+        <div class="prod-card__img">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80" alt="Rose Noir EDP" loading="lazy"/>
+          <div class="prod-card__badge">Avon</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Rose Noir ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Perfumaria</p>
-          <h3>Rose Noir EDP</h3>
-          <p class="prod-price">Kz 18.900</p>
-          <button class="prod-card__add" aria-label="Adicionar Rose Noir ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Perfumaria</span>
+          <h3 class="prod-card__name">Rose Noir EDP</h3>
+          <p class="prod-card__price">Kz 18.900</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
-      <article class="prod-card" role="listitem" data-id="4" data-filter="cabelo"
-        data-name="Máscara Capilar Gold"
-        data-cat="Cabelo"
-        data-price="6300"
+      <article class="prod-card"
+        data-cat="cabelo" data-brand="nivea" data-id="4"
+        data-name="Máscara Capilar Gold" data-price="6300"
         data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
-        data-desc="Máscara de tratamento intensivo com óleo de argan e queratina. Nutre profundamente, elimina o frizz e devolve o brilho natural."
-        aria-label="Máscara Capilar Gold — Kz 6.300">
-        <div class="prod-card__img-wrap">
+        data-desc="Tratamento intensivo com argan e queratina. Elimina frizz e devolve brilho.">
+        <div class="prod-card__img">
           <img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80" alt="Máscara Capilar Gold" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Máscara Capilar Gold">Quick View</button>
+          <div class="prod-card__badge">Nivea</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Máscara ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Cabelo</p>
-          <h3>Máscara Capilar Gold</h3>
-          <p class="prod-price">Kz 6.300</p>
-          <button class="prod-card__add" aria-label="Adicionar Máscara ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Cabelo</span>
+          <h3 class="prod-card__name">Máscara Capilar Gold</h3>
+          <p class="prod-card__price">Kz 6.300</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
-      <article class="prod-card" role="listitem" data-id="5" data-filter="skincare"
-        data-name="Eye Contour Cream"
-        data-cat="Skincare"
-        data-price="11200"
-        data-img="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80"
-        data-desc="Creme de tratamento específico para a área dos olhos. Reduz círculos escuros, puffiness e linhas finas com retinol e peptídeos."
-        aria-label="Eye Contour Cream — Kz 11.200">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80" alt="Creme Contorno de Olhos" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Eye Contour Cream">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Skincare</p>
-          <h3>Eye Contour Cream</h3>
-          <p class="prod-price">Kz 11.200</p>
-          <button class="prod-card__add" aria-label="Adicionar Eye Cream ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="6" data-filter="maquilhagem"
-        data-name="Foundation Glow Serum"
-        data-cat="Maquilhagem"
-        data-price="9800"
-        data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
-        data-desc="Base sérum com cobertura leve a média. Finish luminoso natural, FPS 30 integrado e hidratação de 12 horas. Disponível em 20 tons."
-        aria-label="Foundation Glow Serum — Kz 9.800">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Foundation Glow Serum" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Foundation Glow Serum">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Maquilhagem</p>
-          <h3>Foundation Glow Serum</h3>
-          <p class="prod-price">Kz 9.800</p>
-          <button class="prod-card__add" aria-label="Adicionar Foundation ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="7" data-filter="maquilhagem"
-        data-name="Paleta de Sombras Nude"
-        data-cat="Maquilhagem"
-        data-price="12500"
-        data-img="https://images.unsplash.com/photo-1548954638-082b560e0a66?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        data-desc="Paleta com 12 tons neutros e terrosos altamente pigmentados. Acabamentos matte, shimmer e glitter. Ideal para looks de dia e noite."
-        aria-label="Paleta de Sombras Nude — Kz 12.500">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1548954638-082b560e0a66?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Paleta de Sombras Nude" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Paleta de Sombras">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Maquilhagem</p>
-          <h3>Paleta Sombras Nude</h3>
-          <p class="prod-price">Kz 12.500</p>
-          <button class="prod-card__add" aria-label="Adicionar Paleta ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="8" data-filter="skincare"
-        data-name="Hidratante FPS 50"
-        data-cat="Skincare"
-        data-price="7400"
+      <article class="prod-card"
+        data-cat="skincare" data-brand="loreal" data-id="5"
+        data-name="Hidratante FPS 50" data-price="7400"
         data-img="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80"
-        data-desc="Hidratante facial com protecção solar FPS 50. Textura leve, não oleosa, ideal para o clima angolano. Com ácido hialurónico e niacinamida."
-        aria-label="Hidratante FPS 50 — Kz 7.400">
-        <div class="prod-card__img-wrap">
+        data-desc="Proteção solar com ácido hialurónico. Textura leve, não oleosa.">
+        <div class="prod-card__img">
           <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80" alt="Hidratante FPS 50" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Hidratante FPS 50">Quick View</button>
+          <div class="prod-card__badge">L'Oréal</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Hidratante ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Skincare</p>
-          <h3>Hidratante FPS 50</h3>
-          <p class="prod-price">Kz 7.400</p>
-          <button class="prod-card__add" aria-label="Adicionar Hidratante ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Skincare</span>
+          <h3 class="prod-card__name">Hidratante FPS 50</h3>
+          <p class="prod-card__price">Kz 7.400</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
-      <article class="prod-card" role="listitem" data-id="9" data-filter="perfumaria"
-        data-name="Body Mist Vanilla &amp; Coco"
-        data-cat="Perfumaria"
-        data-price="5600"
-        data-img="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&q=80"
-        data-desc="Body mist refrescante com notas de baunilha, coco e flor de tiaré. Duração suave de 4h. Perfeito para o dia a dia."
-        aria-label="Body Mist Vanilla e Coco — Kz 5.600">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&q=80" alt="Body Mist Vanilla e Coco" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Body Mist">Quick View</button>
+      <article class="prod-card"
+        data-cat="maquilhagem" data-brand="maybelline" data-id="6"
+        data-name="Foundation Glow Serum" data-price="9800"
+        data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+        data-desc="Base sérum cobertura leve. FPS 30. Disponível em 20 tons.">
+        <div class="prod-card__img">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Foundation Glow Serum" loading="lazy"/>
+          <div class="prod-card__badge">Maybelline</div>
+          <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar Foundation ao carrinho">
+            <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+          </button>
         </div>
         <div class="prod-card__body">
-          <p class="prod-cat">Perfumaria</p>
-          <h3>Body Mist Vanilla &amp; Coco</h3>
-          <p class="prod-price">Kz 5.600</p>
-          <button class="prod-card__add" aria-label="Adicionar Body Mist ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="10" data-filter="cabelo"
-        data-name="Óleo de Argan Puro"
-        data-cat="Cabelo"
-        data-price="8900"
-        data-img="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80"
-        data-desc="Óleo de argan 100% puro e orgânico. Nutre, hidrata e dá brilho intenso. Pode ser usado no cabelo e na pele. 30ml de pura eficácia."
-        aria-label="Óleo de Argan Puro — Kz 8.900">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80" alt="Óleo de Argan Puro" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Óleo de Argan">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Cabelo</p>
-          <h3>Óleo de Argan Puro</h3>
-          <p class="prod-price">Kz 8.900</p>
-          <button class="prod-card__add" aria-label="Adicionar Óleo de Argan ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="11" data-filter="maquilhagem"
-        data-name="Blush Rosé Petal"
-        data-cat="Maquilhagem"
-        data-price="5100"
-        data-img="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80"
-        data-desc="Blush em pó com tom rosé natural. Pigmentação suave para look natural. Com espelho integrado e pincel. Inclui 3 tons."
-        aria-label="Blush Rosé Petal — Kz 5.100">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Blush Rosé Petal" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Blush Rosé Petal">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Maquilhagem</p>
-          <h3>Blush Rosé Petal</h3>
-          <p class="prod-price">Kz 5.100</p>
-          <button class="prod-card__add" aria-label="Adicionar Blush ao carrinho">+ Adicionar</button>
-        </div>
-      </article>
-
-      <article class="prod-card" role="listitem" data-id="12" data-filter="skincare"
-        data-name="Tónico Facial Rose Water"
-        data-cat="Skincare"
-        data-price="4800"
-        data-img="https://images.unsplash.com/photo-1696894756284-45bc28f439d8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        data-desc="Tónico facial com água de rosas pura. Hidrata, equilibra o pH e prepara a pele para os próximos passos da rotina. Formato spray 150ml."
-        aria-label="Tónico Facial Rose Water — Kz 4.800">
-        <div class="prod-card__img-wrap">
-          <img src="https://images.unsplash.com/photo-1696894756284-45bc28f439d8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tónico Facial Rose Water" loading="lazy"/>
-          <button class="prod-card__qv" aria-label="Ver rápido: Tónico Rose Water">Quick View</button>
-        </div>
-        <div class="prod-card__body">
-          <p class="prod-cat">Skincare</p>
-          <h3>Tónico Rose Water</h3>
-          <p class="prod-price">Kz 4.800</p>
-          <button class="prod-card__add" aria-label="Adicionar Tónico ao carrinho">+ Adicionar</button>
+          <span class="prod-card__cat">Maquilhagem</span>
+          <h3 class="prod-card__name">Foundation Glow Serum</h3>
+          <p class="prod-card__price">Kz 9.800</p>
+          <button class="prod-card__add" data-action="add" aria-label="Adicionar ao carrinho">Adicionar</button>
         </div>
       </article>
 
     </div>
 
-    <!-- No results state -->
-    <div class="no-results" id="noResults" hidden>
-      <p>Nenhum produto encontrado nesta categoria.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ SOBRE ══════════════════════════════════════ -->
-<section class="sobre" id="sobre" aria-labelledby="sobreTitle">
-  <div class="sobre__bg" aria-hidden="true">
-    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1200&q=85" alt=""/>
-    <div class="sobre__veil"></div>
-  </div>
-  <div class="container sobre__inner">
-    <div class="sobre__content">
-      <p class="section-eyebrow section-eyebrow--light">Nossa Essência em Namibe</p>
-      <h2 class="section-title section-title--light" id="sobreTitle">
-        Beleza com <em>alma angolana.</em>
-      </h2>
-      <p class="sobre__text">
-        Situada no coração de Namibe, a El Vayon traz a curadoria dos melhores cosméticos mundiais para a mulher angolana. Acreditamos que o luxo não é um privilégio — é uma escolha. Cada produto que seleccionamos foi escolhido com rigor, para que cada cliente saia mais confiante, mais radiante e completamente ela mesma.
-      </p>
-      <div class="sobre__pillars">
-        <div class="sobre__pillar">
-          <span class="sobre__pillar-num" aria-hidden="true">01</span>
-          <h4>Curadoria Exclusiva</h4>
-          <p>Seleção rigorosa de marcas e fórmulas reconhecidas internacionalmente.</p>
-        </div>
-        <div class="sobre__pillar">
-          <span class="sobre__pillar-num" aria-hidden="true">02</span>
-          <h4>Atendimento Personalizado</h4>
-          <p>A nossa equipa aconselha cada cliente com base na sua pele e estilo de vida.</p>
-        </div>
-        <div class="sobre__pillar">
-          <span class="sobre__pillar-num" aria-hidden="true">03</span>
-          <h4>Qualidade Garantida</h4>
-          <p>Apenas produtos originais e certificados. Nunca compras desnecessárias.</p>
-        </div>
-      </div>
+    <div class="produtos-home__cta">
+      <a href="produtos.html" class="btn-primary btn-primary--lg">
+        Ver todos os produtos
+        <svg viewBox="0 0 16 16" fill="none" width="14" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -515,157 +269,159 @@
 <!-- ══ SERVIÇOS ═══════════════════════════════════ -->
 <section class="servicos" id="servicos" aria-labelledby="servicosTitle">
   <div class="container">
-    <div class="section-head centered">
-      <p class="section-eyebrow">Agendamento & Serviços</p>
-      <h2 class="section-title" id="servicosTitle">Como podemos <em>ajudar</em></h2>
+    <div class="section-head section-head--center">
+      <p class="eyebrow">O que fazemos</p>
+      <h2 class="section-title" id="servicosTitle">Os nossos <em>serviços</em></h2>
     </div>
-    <div class="servicos-grid">
+    <div class="servicos__grid">
 
-      <!-- Serviço de Maquilhagem — NOVO em destaque -->
-      <div class="servico-card servico-card--featured">
-        <div class="servico-card__badge">Novo</div>
-        <div class="servico-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none">
-            <path d="M20 8c-2.5 0-5 1.5-6 4L8 26h24l-6-14c-1-2.5-3.5-4-6-4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
-            <path d="M8 26h24v4a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-4z" stroke="currentColor" stroke-width="1.3"/>
-            <path d="M15 16c1 2 2.5 3.5 5 3.5s4-1.5 5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-          </svg>
+      <!-- Nail Designer -->
+      <div class="servico-card" id="servicoNail">
+        <div class="servico-card__img">
+          <!-- SUBSTITUIR: <img src="img/nail.jpg" alt="Nail Designer"/> -->
+          <div class="servico-card__img-placeholder servico-card__img-placeholder--nail" aria-hidden="true"></div>
+          <div class="servico-card__overlay"></div>
         </div>
-        <h3>Serviço de Maquilhagem</h3>
-        <p>Maquilhagem profissional para eventos, casamentos, formaturas e sessões fotográficas. Realce a sua beleza natural com as nossas especialistas.</p>
-        <ul class="servico-card__list">
-          <li>✦ Maquilhagem de dia e noite</li>
-          <li>✦ Maquilhagem de noiva</li>
-          <li>✦ Sessão fotográfica</li>
-          <li>✦ Make completo + penteado</li>
-        </ul>
-        <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20maquilhagem." target="_blank" rel="noopener" class="servico-card__cta">
-          Agendar Maquilhagem →
-        </a>
+        <div class="servico-card__body">
+          <span class="servico-card__icon" aria-hidden="true">💅</span>
+          <h3>Nail Designer</h3>
+          <p>Unhas perfeitas para cada ocasião. Gel, acrilico, nail art e tratamentos.</p>
+          <button class="btn-precos" data-service="nail" aria-expanded="false" aria-controls="precosNail">
+            Ver preços
+            <svg viewBox="0 0 16 16" fill="none" width="13" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="precos-menu" id="precosNail" hidden role="region" aria-label="Preços Nail Designer">
+          <h4>Tabela de Preços — Nail Designer</h4>
+          <!-- SUBSTITUIR com preços reais -->
+          <ul class="precos-list">
+            <li><span>Gel simples</span><span>Kz 3.500</span></li>
+            <li><span>Gel com decoração</span><span>Kz 5.000</span></li>
+            <li><span>Acrílico</span><span>Kz 6.500</span></li>
+            <li><span>Nail Art completo</span><span>Kz 8.000</span></li>
+            <li><span>Remoção de gel</span><span>Kz 1.500</span></li>
+            <li><span>Manicure simples</span><span>Kz 2.000</span></li>
+          </ul>
+          <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20nail%20design." target="_blank" rel="noopener" class="btn-agendar">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="15" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
       </div>
 
-      <div class="servico-card">
-        <div class="servico-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M10 35c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M28 20l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <!-- Barbearia -->
+      <div class="servico-card" id="servicoBarbearia">
+        <div class="servico-card__img">
+          <!-- SUBSTITUIR: <img src="img/barbearia.jpg" alt="Barbearia"/> -->
+          <div class="servico-card__img-placeholder servico-card__img-placeholder--barber" aria-hidden="true"></div>
+          <div class="servico-card__overlay"></div>
         </div>
-        <h3>Consultoria de Skincare</h3>
-        <p>Análise personalizada da sua pele e recomendação de rotina ideal. Agende uma consulta gratuita com a nossa especialista.</p>
-        <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consultoria%20de%20skincare." target="_blank" rel="noopener" class="servico-card__cta">
-          Agendar pelo WhatsApp →
-        </a>
+        <div class="servico-card__body">
+          <span class="servico-card__icon" aria-hidden="true">✂️</span>
+          <h3>Barbearia</h3>
+          <p>Cortes modernos, barba tratada e acabamentos impecáveis para homens.</p>
+          <button class="btn-precos" data-service="barber" aria-expanded="false" aria-controls="precosBarber">
+            Ver preços
+            <svg viewBox="0 0 16 16" fill="none" width="13" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="precos-menu" id="precosBarber" hidden role="region" aria-label="Preços Barbearia">
+          <h4>Tabela de Preços — Barbearia</h4>
+          <!-- SUBSTITUIR com preços reais -->
+          <ul class="precos-list">
+            <li><span>Corte simples</span><span>Kz 2.000</span></li>
+            <li><span>Corte + barba</span><span>Kz 3.500</span></li>
+            <li><span>Barba</span><span>Kz 1.500</span></li>
+            <li><span>Corte degradê</span><span>Kz 2.500</span></li>
+            <li><span>Corte infantil</span><span>Kz 1.500</span></li>
+            <li><span>Combo completo</span><span>Kz 4.500</span></li>
+          </ul>
+          <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20corte%20na%20barbearia." target="_blank" rel="noopener" class="btn-agendar">
+            <svg viewBox="0 0 20 20" fill="currentColor" width="15" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
       </div>
 
-      <div class="servico-card">
-        <div class="servico-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="8" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.3"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <!-- Produtos Cosméticos -->
+      <div class="servico-card" id="servicoCosmeticos">
+        <div class="servico-card__img">
+          <!-- SUBSTITUIR: <img src="img/cosmeticos.jpg" alt="Cosméticos"/> -->
+          <div class="servico-card__img-placeholder servico-card__img-placeholder--cosm" aria-hidden="true"></div>
+          <div class="servico-card__overlay"></div>
         </div>
-        <h3>Personal Shopper</h3>
-        <p>Não sabe o que escolher? A nossa equipa seleciona os produtos certos para si com base nas suas necessidades e orçamento.</p>
-        <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20produtos." target="_blank" rel="noopener" class="servico-card__cta">
-          Falar Connosco →
-        </a>
-      </div>
-
-      <div class="servico-card">
-        <div class="servico-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none"><path d="M20 6L6 12v10c0 7.5 6 14 14 16 8-2 14-8.5 14-16V12L20 6z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        <div class="servico-card__body">
+          <span class="servico-card__icon" aria-hidden="true">🛍️</span>
+          <h3>Produtos Cosméticos</h3>
+          <p>Curadoria das melhores marcas mundiais. Skincare, maquilhagem, perfumaria e cabelo.</p>
+          <button class="btn-precos" data-service="cosm" aria-expanded="false" aria-controls="precoCosm">
+            Ver preços
+            <svg viewBox="0 0 16 16" fill="none" width="13" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-        <h3>Encomendas Especiais</h3>
-        <p>Não encontrou o produto que procura? Fazemos encomendas especiais de marcas e produtos à sua escolha. Prazo de 7–14 dias.</p>
-        <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda%20especial." target="_blank" rel="noopener" class="servico-card__cta">
-          Solicitar Encomenda →
-        </a>
+        <div class="precos-menu" id="precoCosm" hidden role="region" aria-label="Preços Produtos Cosméticos">
+          <h4>Categorias — Produtos Cosméticos</h4>
+          <ul class="precos-list">
+            <li><span>Skincare (Avon)</span><span>Kz 4.500+</span></li>
+            <li><span>Maquilhagem</span><span>Kz 3.000+</span></li>
+            <li><span>Perfumaria</span><span>Kz 8.000+</span></li>
+            <li><span>Cuidados cabelo</span><span>Kz 2.500+</span></li>
+            <li><span>Cuidados unhas</span><span>Kz 1.500+</span></li>
+          </ul>
+          <a href="produtos.html" class="btn-agendar btn-agendar--outline">
+            Ver catálogo completo →
+          </a>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ══ DEPOIMENTOS ════════════════════════════════ -->
-<section class="depoimentos" aria-labelledby="depTitle">
+<!-- ══ GALERIA ════════════════════════════════════ -->
+<section class="galeria" id="galeria" aria-labelledby="galeriaTitle">
   <div class="container">
-    <div class="section-head centered">
-      <p class="section-eyebrow">O que dizem de nós</p>
-      <h2 class="section-title" id="depTitle">Clientes que <em>brilham</em></h2>
+    <div class="section-head section-head--center">
+      <p class="eyebrow">A nossa loja</p>
+      <h2 class="section-title" id="galeriaTitle">Galeria</h2>
     </div>
-    <div class="dep-grid">
-      <blockquote class="dep-card">
-        <p>"Finalmente encontrei um lugar em Namibe com produtos originais de qualidade. A consultoria foi incrível — a minha pele mudou completamente!"</p>
-        <footer>
-          <div class="dep-avatar" aria-hidden="true">MJ</div>
-          <div><cite>Maria João</cite><span>Namibe</span></div>
-          <span class="dep-stars" aria-label="5 estrelas">★★★★★</span>
-        </footer>
-      </blockquote>
-      <blockquote class="dep-card dep-card--featured">
-        <p>"Fiz a maquilhagem para o meu casamento com a equipa da El Vayon e ficou perfeita! Durou o dia todo. O atendimento foi de outro nível — senti-me uma rainha."</p>
-        <footer>
-          <div class="dep-avatar" aria-hidden="true">LA</div>
-          <div><cite>Leonor Afonso</cite><span>Lubango</span></div>
-          <span class="dep-stars" aria-label="5 estrelas">★★★★★</span>
-        </footer>
-      </blockquote>
-      <blockquote class="dep-card">
-        <p>"O perfume que pedi por encomenda chegou em menos de 2 semanas. Super original e com excelente preço. Já estou a fazer nova encomenda!"</p>
-        <footer>
-          <div class="dep-avatar" aria-hidden="true">CR</div>
-          <div><cite>Catarina R.</cite><span>Namibe</span></div>
-          <span class="dep-stars" aria-label="5 estrelas">★★★★★</span>
-        </footer>
-      </blockquote>
+    <div class="galeria__grid" role="list">
+      <!-- SUBSTITUIR pelas fotos reais da loja -->
+      <div class="galeria__item galeria__item--tall" role="listitem">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80" alt="Loja El Vayon" loading="lazy"/>
+      </div>
+      <div class="galeria__item" role="listitem">
+        <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=500&q=80" alt="Produtos El Vayon" loading="lazy"/>
+      </div>
+      <div class="galeria__item" role="listitem">
+        <img src="https://images.unsplash.com/photo-1631214500004-dd8f28e29f04?w=500&q=80" alt="Maquilhagem" loading="lazy"/>
+      </div>
+      <div class="galeria__item galeria__item--wide" role="listitem">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80" alt="Atendimento El Vayon" loading="lazy"/>
+      </div>
+      <div class="galeria__item" role="listitem">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80" alt="Perfumes El Vayon" loading="lazy"/>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACTOS & MAPA ══════════════════════════ -->
-<section class="contactos" id="contactos" aria-labelledby="contactosTitle">
-  <div class="container">
-    <div class="section-head">
-      <p class="section-eyebrow">Onde nos Encontrar</p>
-      <h2 class="section-title" id="contactosTitle">Visite-<em>nos</em></h2>
-    </div>
-    <div class="contactos-inner">
-      <div class="contactos-info">
-        <div class="info-block">
-          <h3>Morada</h3>
-          <p>Junto às novas instalações dos Bombeiros<br/>Saidy Mingas II<br/>Rua do Pavilhão Welwitchia Mirabilis<br/>Namibe, Angola</p>
-          <a href="https://maps.app.goo.gl/spgQBMRjwshgMJ598" target="_blank" rel="noopener" class="info-link" aria-label="Abrir localização no Google Maps">
-            <svg viewBox="0 0 16 16" fill="none" width="13" aria-hidden="true"><path d="M2 10l8-8M4 2h6v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Abrir no Google Maps
-          </a>
-        </div>
-        <div class="info-block">
-          <h3>Contacto</h3>
-          <a href="tel:+244933301330" class="info-link info-link--big" aria-label="Ligar para El Vayon">
-            <svg viewBox="0 0 16 16" fill="none" width="14" aria-hidden="true"><path d="M2 3A1.5 1.5 0 0 1 3.5 1.5h.96a1.5 1.5 0 0 1 1.46 1.17l.58 2.59a1.5 1.5 0 0 1-.85 1.68l-.76.34A9.27 9.27 0 0 0 8.9 11.3l.34-.76a1.5 1.5 0 0 1 1.68-.85l2.59.58A1.5 1.5 0 0 1 14.5 11.7v.8A1.5 1.5 0 0 1 13 14h-1a11 11 0 0 1-11-11V2A1.5 1.5 0 0 1 2.5.5H3A1.5 1.5 0 0 1 2 3z" stroke="currentColor" stroke-width="1.2"/></svg>
-            +244 933 301 330
-          </a>
-          <a href="https://wa.me/244933301330" target="_blank" rel="noopener" class="info-link info-link--wa" aria-label="WhatsApp El Vayon">
-            <svg viewBox="0 0 20 20" fill="currentColor" width="14" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
-            WhatsApp
-          </a>
-        </div>
-        <div class="info-block">
-          <h3>Horários</h3>
-          <div class="horarios">
-            <div class="horario-row" data-days="1,2,3,4,5,6">
-              <span>Segunda a Sábado</span>
-              <span>08:00 – 20:00</span>
-            </div>
-            <div class="horario-row horario-row--closed" data-days="0">
-              <span>Domingo</span>
-              <span>Encerrado</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contactos-map" aria-label="Mapa de localização El Vayon">
-        <iframe
-          src="https://maps.google.com/maps?q=Rua+do+Pavilh%C3%A3o+Welwitchia+Mirabilis+Namibe+Angola&output=embed&z=15"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Localização El Vayon — Namibe, Angola">
-        </iframe>
-      </div>
+<!-- ══ CTA FINAL ══════════════════════════════════ -->
+<section class="cta-final" aria-labelledby="ctaTitle">
+  <div class="cta-final__bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1400&q=85" alt="" loading="lazy"/>
+    <div class="cta-final__overlay"></div>
+  </div>
+  <div class="container cta-final__inner">
+    <p class="eyebrow eyebrow--light">El Vayon · Namibe</p>
+    <h2 class="cta-final__title" id="ctaTitle">Pronta para se<br/><em>sentir incrível?</em></h2>
+    <p class="cta-final__sub">Visite-nos ou faça o seu pedido online. Entregas disponíveis em Namibe.</p>
+    <div class="cta-final__btns">
+      <a href="produtos.html" class="btn-primary">Comprar agora</a>
+      <a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Tenho%20uma%20quest%C3%A3o%20sobre%20os%20produtos." target="_blank" rel="noopener" class="btn-wa">
+        <svg viewBox="0 0 20 20" fill="currentColor" width="18" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
+        Falar pelo WhatsApp
+      </a>
     </div>
   </div>
 </section>
@@ -673,48 +429,101 @@
 </main>
 
 <!-- ══ FOOTER ════════════════════════════════════ -->
-<footer class="footer" role="contentinfo">
-  <div class="footer__top">
-    <div class="container footer__top-inner">
-      <div class="footer__newsletter">
-        <h3>Receba dicas de beleza <em>exclusivas</em></h3>
-        <p>Subscreva a nossa newsletter e seja a primeira a saber das novidades.</p>
-        <form class="newsletter-form" id="newsletterForm" aria-label="Formulário de newsletter" novalidate>
-          <input type="email" id="nlEmail" placeholder="O seu e-mail" aria-label="E-mail para newsletter" required/>
-          <button type="submit" aria-label="Subscrever newsletter">Subscrever →</button>
-        </form>
-        <p class="nl-status" id="nlStatus" aria-live="polite"></p>
-      </div>
+<footer class="footer" id="contactos" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
       <div class="footer__brand">
-        <p class="footer__logo">El Vayon</p>
-        <p class="footer__tagline"><em>A sofisticação que a sua pele merece.</em></p>
-        <div class="footer__socials" aria-label="Redes sociais">
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram El Vayon">
-            <svg viewBox="0 0 24 24" fill="none" width="18" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <p class="footer__logo"><em>El</em> Vayon</p>
+        <p class="footer__tagline">A sofisticação que a sua pele merece.</p>
+        <p class="footer__address">
+          Junto às novas instalações dos Bombeiros<br/>
+          Saidy Mingas II · Namibe, Angola
+        </p>
+        <div class="footer__socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram El Vayon" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" width="18" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok El Vayon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.14 8.14 0 0 0 4.77 1.52V6.77a4.85 4.85 0 0 1-1-.08z"/></svg>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok El Vayon" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.33 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.14 8.14 0 0 0 4.77 1.52V6.77a4.85 4.85 0 0 1-1-.08z"/></svg>
           </a>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <div class="container footer__bottom-inner">
-      <p>© 2025 El Vayon Cosméticos · Namibe, Angola</p>
-      <nav aria-label="Links do rodapé">
-        <a href="#categorias">Categorias</a>
-        <a href="#produtos">Produtos</a>
+
+      <div class="footer__col">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
         <a href="#servicos">Serviços</a>
-        <a href="#contactos">Contactos</a>
-      </nav>
+        <a href="#galeria">Galeria</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Serviços</h4>
+        <a href="#servicos">💅 Nail Designer</a>
+        <a href="#servicos">✂️ Barbearia</a>
+        <a href="produtos.html">🛍️ Cosméticos</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="tel:+244933301330">+244 933 301 330</a>
+        <a href="https://wa.me/244933301330" target="_blank" rel="noopener">WhatsApp</a>
+        <p class="footer__hours">Seg–Sáb: 08h00 – 20h00</p>
+        <p class="footer__hours footer__hours--closed">Domingo: Encerrado</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2025 El Vayon Cosméticos · Namibe, Angola</p>
+      <p>Feito com 💖 para a mulher angolana</p>
     </div>
   </div>
 </footer>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Tenho%20uma%20quest%C3%A3o%20sobre%20os%20vossos%20produtos." target="_blank" rel="noopener" class="wa-float" aria-label="Falar com El Vayon pelo WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+<!-- ══ CARRINHO DRAWER ════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+<div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+  <div class="cart-drawer__header">
+    <h2>O seu carrinho</h2>
+    <button class="cart-drawer__close" id="cartClose" aria-label="Fechar carrinho">
+      <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 48 48" fill="none" width="44" stroke="currentColor" stroke-width="1" opacity=".2" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="M18 20h12M20 16l4-4 4 4M24 28v-8"/></svg>
+      <p>O seu carrinho está vazio.</p>
+      <a href="produtos.html" class="btn-ghost">Ver produtos</a>
+    </div>
+  </div>
+  <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+    <div class="cart-client">
+      <label for="clientName">O seu nome <span aria-hidden="true">*</span></label>
+      <input type="text" id="clientName" placeholder="Ex: Ana Silva" autocomplete="name" aria-required="true"/>
+    </div>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cartTotal">Kz 0</strong>
+    </div>
+    <button class="btn-checkout" id="btnCheckout">
+      <svg viewBox="0 0 20 20" fill="currentColor" width="16" aria-hidden="true"><path d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z"/><path d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z"/></svg>
+      Finalizar pelo WhatsApp
+    </button>
+    <p class="cart-note">A encomenda será confirmada via WhatsApp.</p>
+  </div>
+</div>
+
+<!-- Cart FAB -->
+<button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+  <svg viewBox="0 0 20 20" fill="none" width="20" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="17" y2="6"/><path d="M13 10a3 3 0 01-6 0"/></svg>
+  <span class="cart-fab__badge" id="cartFabBadge" aria-live="polite">0</span>
+</button>
+
+<!-- WA Float -->
+<a href="https://wa.me/244933301330?text=Ol%C3%A1!%20Tenho%20uma%20quest%C3%A3o." target="_blank" rel="noopener" class="wa-float" aria-label="Contactar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="22" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
   <span class="wa-float__pulse" aria-hidden="true"></span>
 </a>
 
