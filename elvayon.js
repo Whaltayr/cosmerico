@@ -6,6 +6,8 @@
 gsap.registerPlugin(ScrollTrigger);
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+
+
 /* ════════════════════════════════════════════════════
    CART STATE  (shared across both pages via sessionStorage)
 ════════════════════════════════════════════════════ */

@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Vayon · Calendário Editorial 30 Dias</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8922A;
+    --gold-light: #D4AF60;
+    --gold-pale: #F5EDD8;
+    --gold-ultra: #FBF6EC;
+    --black: #0F0E0C;
+    --dark: #1C1A16;
+    --mid: #6B6456;
+    --light: #E8E0D0;
+    --white: #FEFCF8;
+    --bg: #F7F3EC;
+    --header-bg: #1C1A16;
+    --header-text: #FEFCF8;
+    --tag-produto: #D4AF60;
+    --tag-produto-bg: #FBF4E0;
+    --tag-produto-text: #7A5A10;
+    --tag-servico: #7BA898;
+    --tag-servico-bg: #EBF4F1;
+    --tag-servico-text: #2A6058;
+    --tag-marca: #C4856A;
+    --tag-marca-bg: #FAF0EB;
+    --tag-marca-text: #6A3820;
+    --tag-engaja: #8A7BB8;
+    --tag-engaja-bg: #F0EEF8;
+    --tag-engaja-text: #4A3A80;
+    --tag-promo: #C05A5A;
+    --tag-promo-bg: #FAF0F0;
+    --tag-promo-text: #7A2828;
+  }
+
+  html.dark {
+    --gold: #D4AF60;
+    --gold-light: #E8C97A;
+    --gold-pale: #2A2318;
+    --gold-ultra: #201D14;
+    --dark: #EDE5D0;
+    --mid: #A89880;
+    --light: #302C22;
+    --white: #181510;
+    --bg: #0E0D09;
+    --header-bg: #090807;
+    --header-text: #EDE5D0;
+    --tag-produto-bg: #2A2210;
+    --tag-produto-text: #D4AF60;
+    --tag-servico-bg: #0F2420;
+    --tag-servico-text: #7BA898;
+    --tag-marca-bg: #2A1810;
+    --tag-marca-text: #C4856A;
+    --tag-engaja-bg: #1A1628;
+    --tag-engaja-text: #A090D8;
+    --tag-promo-bg: #2A1010;
+    --tag-promo-text: #D07070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--header-bg);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 300;
+    color: var(--header-text);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+  .header h1 span { color: var(--gold-light); font-style: italic; }
+  .header-slogan {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--gold-light);
+    font-style: italic;
+    margin-top: 6px;
+    opacity: 0.9;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-top: 0.75rem;
+    letter-spacing: 0.05em;
+    opacity: 0.55;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: var(--header-bg);
+    padding: 0 1.5rem 1.5rem;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gold-light);
+    opacity: 0.6;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    transition: width 0.6s ease;
+    width: 0%;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: var(--header-bg);
+    border-top: 1px solid rgba(212,175,96,0.15);
+  }
+  @media (max-width: 500px) { .stats-bar { grid-template-columns: repeat(3, 1fr); } }
+  .stat-item {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    border-right: 1px solid rgba(212,175,96,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: var(--gold-light);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    display: block;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0.875rem 1.5rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--light);
+    align-items: center;
+  }
+  .legend-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-right: 4px;
+    width: 100%;
+  }
+  @media (min-width: 600px) { .legend-title { width: auto; } }
+  .leg-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* STICKY NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--light);
+    padding: 10px 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+  html.dark .sticky-nav { box-shadow: 0 2px 16px rgba(0,0,0,0.5); }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .nav-progress {
+    flex: 1;
+    height: 4px;
+    background: var(--light);
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 40px;
+  }
+  .nav-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+  .nav-count {
+    font-size: 12px;
+    color: var(--mid);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* DARK TOGGLE */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    padding: 4px 0;
+  }
+  .toggle-label {
+    font-size: 11px;
+    color: var(--mid);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    white-space: nowrap;
+    display: none;
+  }
+  @media (min-width: 480px) { .toggle-label { display: block; } }
+  .toggle-track {
+    width: 40px;
+    height: 22px;
+    background: var(--light);
+    border-radius: 22px;
+    position: relative;
+    transition: background 0.3s;
+    flex-shrink: 0;
+    border: 1px solid var(--light);
+  }
+  html.dark .toggle-track { background: var(--gold); border-color: var(--gold); }
+  .toggle-thumb {
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 14px; height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  html.dark .toggle-thumb { transform: translateX(18px); background: #1C1A16; }
+  .toggle-icon { font-size: 15px; line-height: 1; }
+
+  /* MAIN */
+  .main { padding: 1.5rem 1.25rem 4rem; max-width: 1400px; margin: 0 auto; }
+  @media (min-width: 600px) { .main { padding: 1.75rem 2rem 4rem; } }
+
+  /* WEEK */
+  .week-section { margin-bottom: 3rem; }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .week-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    opacity: 0.4;
+    min-width: 52px;
+  }
+  .week-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+  .week-info p {
+    font-size: 13px;
+    color: var(--mid);
+    font-style: italic;
+  }
+  .week-divider {
+    flex: 1;
+    min-width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  /* PHASE BANNER */
+  .phase-banner {
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .phase-1 { background: #FBF4E0; color: #7A5A10; border-left: 3px solid var(--gold); }
+  .phase-2 { background: #EBF4F1; color: #2A6058; border-left: 3px solid #7BA898; }
+  .phase-3 { background: #FAF0EB; color: #6A3820; border-left: 3px solid #C4856A; }
+  .phase-4 { background: #FAF0F0; color: #7A2828; border-left: 3px solid #C05A5A; }
+  html.dark .phase-1 { background: #2A2210; color: #D4AF60; }
+  html.dark .phase-2 { background: #0F2420; color: #7BA898; }
+  html.dark .phase-3 { background: #2A1810; color: #C4856A; }
+  html.dark .phase-4 { background: #2A1010; color: #D07070; }
+
+  /* DAYS GRID */
+  .days-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 480px) { .days-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 768px) { .days-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .days-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1300px) { .days-grid { grid-template-columns: repeat(7, 1fr); } }
+
+  /* DAY CARD */
+  .day-card {
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .day-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(184,146,42,0.14); }
+  html.dark .day-card:hover { box-shadow: 0 10px 28px rgba(212,175,96,0.18); }
+  .day-card.done { opacity: 0.55; }
+  .day-card.done .card-top { background: var(--light); }
+
+  .done-overlay {
+    display: none;
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 26px; height: 26px;
+    background: #4a9e6a;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+  .day-card.done .done-overlay { display: flex; }
+  .done-check { color: white; font-size: 13px; font-weight: 700; }
+
+  .card-top {
+    background: var(--gold-ultra);
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--light);
+  }
+  .day-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .day-num-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .weekday-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 5px;
+  }
+  .content-tag {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+  .card-theme {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark);
+    line-height: 1.45;
+  }
+
+  .card-body { padding: 12px 14px; flex: 1; }
+
+  .card-section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+  .card-section-label:first-child { margin-top: 0; }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+  .card-caption {
+    font-size: 13px;
+    color: var(--dark);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .card-hashtags {
+    font-size: 12px;
+    color: var(--gold);
+    line-height: 1.7;
+    word-break: break-word;
+  }
+  .card-story {
+    font-size: 12px;
+    color: var(--tag-engaja-text);
+    line-height: 1.55;
+    padding: 8px 10px;
+    background: var(--tag-engaja-bg);
+    border-radius: 7px;
+    margin-top: 4px;
+  }
+  .platforms {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--light);
+  }
+  .plat {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: var(--light);
+    color: var(--mid);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* CHECK BUTTON */
+  .check-btn {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--light);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--mid);
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .check-btn:hover { background: var(--gold-pale); color: var(--gold); }
+  .day-card.done .check-btn { color: #4a9e6a; }
+
+  /* STORIES */
+  .stories-section { margin-bottom: 2.5rem; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--light);
+  }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 600px) { .stories-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1024px) { .stories-grid { grid-template-columns: repeat(7, 1fr); } }
+
+  .story-card {
+    background: var(--white);
+    border: 1px solid var(--light);
+    border-top: 3px solid var(--tag-engaja);
+    border-radius: 10px;
+    padding: 12px 13px;
+  }
+  .story-day {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tag-engaja-text);
+    margin-bottom: 5px;
+  }
+  .story-type {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 5px;
+  }
+  .story-idea {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--header-bg);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,96,0.15);
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .footer-sub {
+    font-size: 11px;
+    color: var(--gold-light);
+    opacity: 0.4;
+    letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">JASP Labs · Gestão de Redes Sociais</div>
+  <h1>El Vayon <span>Cosméticos</span></h1>
+  <div class="header-slogan">Essências Sublime</div>
+  <div class="header-sub">Calendário Editorial · 30 Dias · Instagram · Facebook · TikTok</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span>PROGRESSO DO MÊS</span>
+    <span id="progress-text">0 de 30 dias concluídos</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="main-progress"></div></div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Posts</div></div>
+  <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Stories</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Redes</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Fases</div></div>
+  <div class="stat-item"><div class="stat-num" id="done-count">0</div><div class="stat-label">Concluídos</div></div>
+</div>
+
+<div class="legend">
+  <span class="legend-title">Tipo de conteúdo:</span>
+  <span class="leg-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)"><span class="leg-dot" style="background:var(--tag-produto)"></span>Produto</span>
+  <span class="leg-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)"><span class="leg-dot" style="background:var(--tag-servico)"></span>Serviço</span>
+  <span class="leg-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)"><span class="leg-dot" style="background:var(--tag-marca)"></span>Marca/Lifestyle</span>
+  <span class="leg-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)"><span class="leg-dot" style="background:var(--tag-engaja)"></span>Engajamento</span>
+  <span class="leg-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)"><span class="leg-dot" style="background:var(--tag-promo)"></span>Promoção</span>
+</div>
+
+<div class="sticky-nav">
+  <div class="nav-brand">El Vayon · 30 Dias</div>
+  <div class="nav-progress"><div class="nav-fill" id="nav-fill" style="width:0%"></div></div>
+  <div class="nav-count" id="nav-count">0 / 30</div>
+  <div class="theme-toggle" onclick="toggleDark()" title="Mudar tema">
+    <span class="toggle-icon" id="theme-icon">☀️</span>
+    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+    <span class="toggle-label" id="theme-label">Dark</span>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- STORIES SEMANAIS -->
+<div class="stories-section">
+  <div class="section-title">Stories Diários — Estrutura Semanal</div>
+  <div class="stories-grid">
+    <div class="story-card"><div class="story-day">Segunda</div><div class="story-type">Motivação</div><div class="story-idea">Frase inspiradora sobre beleza, autoestima ou confiança ligada à El Vayon</div></div>
+    <div class="story-card"><div class="story-day">Terça</div><div class="story-type">Dica de beleza</div><div class="story-idea">Ensina algo rápido — como aplicar um produto, combinar perfumes, cuidar das unhas</div></div>
+    <div class="story-card"><div class="story-day">Quarta</div><div class="story-type">Enquete / Pergunta</div><div class="story-idea">"Qual preferes?" · "Já experimentaste?" · Caixa de perguntas sobre produtos</div></div>
+    <div class="story-card"><div class="story-day">Quinta</div><div class="story-type">Destaque do dia</div><div class="story-idea">Produto ou serviço em foco — foto real com preço e CTA para WhatsApp</div></div>
+    <div class="story-card"><div class="story-day">Sexta</div><div class="story-type">Bastidores</div><div class="story-idea">Equipa a trabalhar, espaço, preparação dos produtos, dia a dia da loja</div></div>
+    <div class="story-card"><div class="story-day">Sábado</div><div class="story-type">Promoção / Oferta</div><div class="story-idea">Oferta especial de fim de semana com contador de urgência ou código especial</div></div>
+    <div class="story-card"><div class="story-day">Domingo</div><div class="story-type">Depoimento / História</div><div class="story-idea">Partilha feedback de cliente, história da El Vayon ou momento especial da semana</div></div>
+  </div>
+</div>
+
+<!-- SEMANA 1 -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-num">01</div>
+    <div class="week-info">
+      <h2>Semana 1 — Apresentação</h2>
+      <p>Dias 1 ao 7 · O Namibe precisa de nos conhecer</p>
+    </div>
+    <div class="week-divider"></div>
+  </div>
+  <div class="phase-banner phase-1">Fase: Quem somos — Criar a primeira impressão forte e mostrar a El Vayon ao Namibe</div>
+  <div class="days-grid">
+
+    <div class="day-card" data-day="1">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">01</div><div class="weekday-label">Segunda</div></div>
+          <span class="content-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)">Marca</span>
+        </div>
+        <div class="card-theme">Apresentação oficial da El Vayon — chegámos ao Namibe</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de abertura. Apresentar a loja, o espaço, a equipa. Mostrar que existe um lugar especial no Namibe dedicado à beleza.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Há um lugar no Namibe onde a beleza tem endereço. ✨ Somos a El Vayon Cosméticos — nascemos da paixão pelo cuidado e chegámos para ficar. Produtos premium, atendimento personalizado e um espaço pensado para ti. Bem-vinda. 📍 [morada] | ☎ 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #NamibeAngola #CosméticosNamibe #BeautaNamibe #EssênciasSublime #Namibe #LojaDeBeauty #AngolaBeauty</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Segunda → Motivação: "A beleza começa quando decides cuidar de ti." — El Vayon</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="2">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">02</div><div class="weekday-label">Terça</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Tour pela loja — o espaço que criámos para ti</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Vídeo curto mostrando o espaço físico — entrada, balcões, produtos expostos, área de nail designer e barbearia. Mostrar o ambiente elegante e acolhedor.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Bem-vindo ao nosso espaço. 🏠✨ Um ambiente criado para que te sintas especial desde o primeiro momento. Aqui não és só mais um cliente — és a nossa razão de existir. Vem conhecer-nos. 📍 Junto aos Bombeiros, Saidy Mingas II, Namibe</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #EspaçoDeBeauty #NamibeAngola #BeautyLounge #AtendimentoPersonalizado #CosméticosAngola</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Terça → Dica: "Sabes como combinar perfume com creme? Aplica o creme primeiro — o aroma dura o dobro."</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="3">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">03</div><div class="weekday-label">Quarta</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Destaque INUKA — o perfume que conta histórias</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Foto ou vídeo do produto INUKA mais popular (perfume). Mostrar o frasco, a embalagem, o aroma descrito em palavras que criam desejo.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Há perfumes que entram numa sala antes de ti. 🌸 O INUKA [nome do perfume] é um desses. Sofisticado, duradouro e irresistível — feito para mulheres que sabem o que querem. Disponível na El Vayon. Encomenda pelo WhatsApp 👇</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#INUKA #PerfumesINUKA #ElVayonCosméticos #PerfumesAngola #NamibeAngola #FragrânciasAfricanas #EssênciasSublime</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quarta → Enquete: "Preferes perfume floral ou amadeirado?" — 2 opções com foto dos produtos</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="4">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">04</div><div class="weekday-label">Quinta</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Nail Designer — antes e depois real</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Foto ou vídeo de transformação real das unhas. Antes (sem tratamento) → depois (resultado final com design personalizado). Mostrar o detalhe e a qualidade.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">As tuas unhas merecem atenção. 💅✨ O nosso serviço de nail designer é personalizado — criamos o design que combina contigo. Este resultado fala por si. Agenda o teu horário pelo WhatsApp: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#NailDesigner #UnhasNamibe #ElVayonCosméticos #NailArt #UnhasPerfeitas #NamibeAngola #BeautyAngola #NailDesignAngola</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quinta → Destaque: Foto das unhas com preço e botão de WhatsApp. "Agenda hoje ainda — vagas limitadas!"</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="5">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">05</div><div class="weekday-label">Sexta</div></div>
+          <span class="content-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)">Engajamento</span>
+        </div>
+        <div class="card-theme">"Qual serviço queres experimentar primeiro?"</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de interacção. Carrossel ou imagem com os serviços disponíveis (nail designer, barbearia, produtos). Pedir à audiência que comente ou vote.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Temos tanto para te oferecer que precisamos de saber — por onde começas? 😍 Comenta abaixo: 💅 Nail Designer | ✂️ Barbearia | 🛒 Produtos | 🌿 Perfumes. A tua resposta ajuda-nos a servir-te melhor!</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #NamibeAngola #BelezaNamibe #Vote #Interação #CosméticosAngola</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sexta → Bastidores: Vídeo curto da equipa a preparar produtos ou a organizar o espaço</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="6">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">06</div><div class="weekday-label">Sábado</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Barbearia — transformação e elegância masculina</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Vídeo ou foto do processo de barbearia — corte, acabamento, resultado final. Mostrar o ambiente premium e a qualidade do serviço. Ideal para atrair público masculino.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Um homem bem apresentado começa por um bom corte. ✂️ A nossa barbearia oferece mais do que um serviço — é uma experiência. Profissionais experientes, ambiente de excelência e um resultado que fala por si. Agenda já: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#BarbeariaNamibe #ElVayonCosméticos #BarberShop #MasculinoAngola #BarbeiroNamibe #NamibeAngola #EstiloMasculino</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sábado → Promoção: "Sábado especial — menciona este story e ganha 10% no teu próximo serviço!"</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="7">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">07</div><div class="weekday-label">Domingo</div></div>
+          <span class="content-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)">Promoção</span>
+        </div>
+        <div class="card-theme">Oferta de boas-vindas — 1ª semana digital</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de promoção para celebrar a primeira semana nas redes. Oferta especial por tempo limitado para novos clientes. Criar urgência e incentivar a visita à loja.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Para celebrar a nossa chegada às redes, temos um presente para ti! 🎁✨ Esta semana, os primeiros clientes que visitarem a El Vayon têm uma surpresa especial à espera. Não deixes para amanhã o que podes viver hoje. 📍 Junto aos Bombeiros, Saidy Mingas II | ☎ 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #PromoçãoNamibe #OfertaEspecial #NamibeAngola #BelezaNamibe #AngolaBeauty #EssênciasSublime</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Domingo → Depoimento: Partilha a história de como a El Vayon nasceu — a história da pele alérgica que virou paixão</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEMANA 2 -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-num">02</div>
+    <div class="week-info">
+      <h2>Semana 2 — Credibilidade</h2>
+      <p>Dias 8 ao 14 · Mostrar que somos bons no que fazemos</p>
+    </div>
+    <div class="week-divider"></div>
+  </div>
+  <div class="phase-banner phase-2">Fase: Por que nos escolher — Processos reais, resultados reais, marcas de qualidade</div>
+  <div class="days-grid">
+
+    <div class="day-card" data-day="8">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">08</div><div class="weekday-label">Segunda</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Linha Avon — clássico que nunca falha</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Apresentação dos produtos Avon disponíveis na loja. Fotos dos produtos com informação sobre benefícios. Focar nos mais populares: batons, cremes, perfumes.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">A Avon chegou à El Vayon — e com ela, décadas de qualidade comprovada. 💄 Desde os batons icónicos aos cremes que a tua pele vai adorar, temos o que precisas. Vem conhecer a nossa colecção completa. ☎ 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Avon #AvonAngola #ElVayonCosméticos #ProdutosAvon #CosméticosNamibe #NamibeAngola #MarcasDeQualidade</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Segunda → Motivação: "Cuidar de ti não é luxo. É necessidade. Começa hoje." ✨</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="9">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">09</div><div class="weekday-label">Terça</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Processo do nail designer — passo a passo ao vivo</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Vídeo do processo completo de nail designer — preparação, aplicação, decoração, resultado final. Mostrar o cuidado e a técnica da profissional. Ideal para TikTok e Reels.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Magia acontece aqui todos os dias. 💅✨ Vê como transformamos unhas simples em arte personalizada — do início ao fim, com todo o cuidado que mereces. Agenda o teu horário: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#NailDesignerAngola #NailArtProcess #ElVayonCosméticos #UnhasNamibe #NailTutorial #BeautyAngola #NailTransformation</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Terça → Dica: "A regra de ouro do nail designer: hidrata as cutículas antes. O resultado dura muito mais!"</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="10">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">10</div><div class="weekday-label">Quarta</div></div>
+          <span class="content-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)">Engajamento</span>
+        </div>
+        <div class="card-theme">"Qual é o teu perfume favorito de sempre?"</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post conversacional. Pergunta directa à audiência sobre preferências de fragrâncias. Usar foto bonita de perfumes. Responder a todos os comentários para criar relação.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Toda a mulher tem aquele perfume que é dela. 🌸 Aquele que usas em dias especiais, que te faz sentir poderosa, que as pessoas associam a ti. Conta-nos — qual é o teu? Comenta abaixo e descobre se temos na El Vayon! 👇</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Perfumes #ElVayonCosméticos #NamibeAngola #FragrânciasAfricanas #PerfumesFemininos #BelezaAngola</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quarta → Enquete: "Perfume de dia ou de noite?" com dois produtos da loja como opções</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="11">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">11</div><div class="weekday-label">Quinta</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Longrich — inovação que cuida da tua pele</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Apresentação da linha Longrich com foco nos benefícios únicos. Destacar os diferenciais face a outras marcas — tecnologia, ingredientes, resultados.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Já conheces a Longrich? 🌿 Uma das marcas que mais cresce no mundo — e temos na El Vayon para ti. Produtos formulados para peles africanas, com ingredientes naturais e resultados visíveis. Experimenta e sente a diferença. ☎ 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Longrich #LongrichAngola #ElVayonCosméticos #CuidadoPele #ProdutosNaturais #NamibeAngola #CosméticosAfricanos</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quinta → Destaque: Produto Longrich em foco com preço, benefício principal e CTA para WhatsApp</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="12">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">12</div><div class="weekday-label">Sexta</div></div>
+          <span class="content-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)">Marca</span>
+        </div>
+        <div class="card-theme">Bastidores — a equipa El Vayon no dia a dia</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Vídeo ou fotos da equipa a trabalhar — a preparar produtos, a atender clientes (com permissão), a organizar o espaço. Humanizar a marca e mostrar o lado real e próximo.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Por trás de cada produto entregue e cada cliente satisfeito, há uma equipa que trabalha com paixão. 💛 Na El Vayon, o nosso compromisso é simples: tratar cada pessoa como única. Este é o nosso dia a dia — e adoramos o que fazemos.</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #Equipa #Bastidores #AtendimentoPersonalizado #NamibeAngola #PaixãoPelaBeleza</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sexta → Bastidores: Vídeo rápido da equipa — pode ser divertido, mostrar personalidade</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="13">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">13</div><div class="weekday-label">Sábado</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Barbearia — a transformação que fala por si</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Resultado real de barbearia — foto ou vídeo antes e depois. Focar no acabamento, na limpeza do corte, no estilo. Mostrar diferentes tipos de corte disponíveis.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">O corte certo muda tudo. ✂️ Na El Vayon, cada barbearia é personalizada — porque o teu estilo é único. Resultado impecável, ambiente confortável e profissionais que conhecem o ofício. Agenda hoje: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#BarbeariaAngola #CortePerfeito #ElVayonCosméticos #EstiloMasculino #NamibeAngola #BarberLife #BarbeiroNamibe</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sábado → Promoção: "Traz um amigo à barbearia e os dois ganham desconto especial!"</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="14">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">14</div><div class="weekday-label">Domingo</div></div>
+          <span class="content-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)">Promoção</span>
+        </div>
+        <div class="card-theme">Combo do fim de semana — produto + serviço</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Promoção combinada — ex: nail designer + creme de mãos INUKA com condição especial. Criar a ideia de valor e conveniência. Post visualmente apelativo com os dois produtos/serviços.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Fim de semana na El Vayon? A melhor ideia que podes ter! 💅🌿 Combinação especial: Nail Designer + Creme de Mãos INUKA — cuidas das unhas E da pele ao mesmo tempo. Vagas limitadas para hoje. WhatsApp: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #ComboBeauty #NamibeAngola #FimDeSemana #PromoçãoBeauty #INUKA #NailDesigner</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Domingo → Depoimento: Partilha feedback de um cliente real (com permissão) ou cria um cartão de depoimento fictício realista</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEMANA 3 -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-num">03</div>
+    <div class="week-info">
+      <h2>Semana 3 — Desejo</h2>
+      <p>Dias 15 ao 21 · Fazer a audiência querer o que temos</p>
+    </div>
+    <div class="week-divider"></div>
+  </div>
+  <div class="phase-banner phase-3">Fase: Quero isso — Conteúdo que desperta desejo, inveja saudável e vontade de comprar</div>
+  <div class="days-grid">
+
+    <div class="day-card" data-day="15">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">15</div><div class="weekday-label">Segunda</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Natura — beleza que respeita a natureza</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Apresentação da linha Natura. Focar no apelo natural, sustentável e sofisticado da marca. Mostrar produtos de cuidados — cremes, óleos, linha capilar.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Natura — onde a natureza encontra a ciência para cuidar de ti. 🌿✨ Uma das marcas mais amadas do mundo chegou à El Vayon. Ingredientes naturais, fórmulas comprovadas e um resultado que a tua pele vai agradecer. Descobre a colecção. ☎ 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Natura #NaturaAngola #ElVayonCosméticos #CosméticosNaturais #PeleAngolana #NamibeAngola #BelezaNatural</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Segunda → Motivação: "A tua essência é única. Nós temos os produtos para a realçar." — El Vayon ✨</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="16">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">16</div><div class="weekday-label">Terça</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Nail art especial — design personalizado em destaque</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Mostrar um design de unhas mais elaborado e artístico. Pode ser inspirado em tendências actuais. Focar na personalização e na arte — cada cliente pode pedir o seu design único.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">As tuas unhas, a tua arte. 💅🎨 Na El Vayon, não fazemos unhas iguais — fazemos as tuas. Este design foi criado a pedido da cliente, do zero, com amor e precisão. Quer o teu design exclusivo? Fala connosco: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#NailArtAngola #DesignPersonalizado #ElVayonCosméticos #UnhasArtísticas #NailDesignerNamibe #BeautyNamibe #NailInspiration</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Terça → Dica: "3 estilos de nail art que estão em tendência agora — qual o teu favorito?" com fotos dos 3</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="17">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">17</div><div class="weekday-label">Quarta</div></div>
+          <span class="content-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)">Engajamento</span>
+        </div>
+        <div class="card-theme">"Vota: qual design de unhas preferes?"</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Carrossel com 4 designs de unhas diferentes. Pedir à audiência para comentar o número do favorito. Gera comentários, aumenta alcance e dá informação sobre preferências do público.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Temos um dilema e precisamos da tua ajuda! 💅 Qual destes 4 designs farias já? 1️⃣ Clássico e elegante | 2️⃣ Bold e colorido | 3️⃣ Minimalista | 4️⃣ Floral. Comenta o número! A mais votada fica disponível com condição especial esta semana. 👇</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Vote #NailArt #ElVayonCosméticos #NamibeAngola #UnhasNamibe #BelezaAngola #NailDesign</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quarta → Enquete: Repete a votação nos Stories com enquete interactiva — mais fácil de responder</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="18">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">18</div><div class="weekday-label">Quinta</div></div>
+          <span class="content-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)">Marca</span>
+        </div>
+        <div class="card-theme">O ambiente da El Vayon — elegância que se sente</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Fotos ou vídeo cinematográfico do espaço — detalhes da decoração, produtos expostos, iluminação, texturas. Transmitir a experiência de estar na loja. Lifestyle e aspiração.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Há lugares que nos fazem sentir diferentes logo que entramos. ✨ A El Vayon foi criada para ser esse lugar. Um espaço onde a beleza é vivida, não apenas comprada. Vem sentir. 📍 Junto aos Bombeiros, Saidy Mingas II, Namibe</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #EssênciasSublime #NamibeAngola #BeautyLounge #LuxoAcessível #EspaçoDeBeauty #AngolaLuxury</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quinta → Destaque: "O nosso espaço está disponível para ti — hoje, de 08h às 20h" com foto convidativa</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="19">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">19</div><div class="weekday-label">Sexta</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Top 3 — os produtos mais amados da El Vayon</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Carrossel com os 3 produtos mais vendidos. Para cada um: nome, marca, principal benefício e porquê os clientes adoram. Formato de "ranking" que cria curiosidade.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Os nossos clientes já escolheram — e nós revelamos o top 3! 🏆✨ Slide 1: O perfume que toda a gente pede. Slide 2: O creme que transforma a pele. Slide 3: O baton que fica para sempre. Vê o carrossel e descobre qual é o teu próximo favorito! 👉</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#Top3BeautyNamibe #ElVayonCosméticos #MaisVendidos #INUKA #ProdutosFavoritos #NamibeAngola #CosméticosDeQualidade</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sexta → Bastidores: "A preparar as encomendas do fim de semana — é assim que trabalhamos!" vídeo rápido</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="20">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">20</div><div class="weekday-label">Sábado</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Barbearia premium — o convite para a experiência</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post aspiracional de barbearia. Focar na experiência completa — não apenas o corte, mas o ambiente, o atendimento, o resultado. Convidar directamente a agendar.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Homem cuidado é homem confiante. ✂️💪 A nossa barbearia não é só um corte — é uma experiência. Sai daqui a sentir que conquistaste o mundo. Sábado é o dia perfeito para te tratar bem. Agenda agora: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#BarbeariaNamibe #ElVayonCosméticos #HomemCuidado #BarberShopAngola #EstiloMasculino #NamibeAngola #CortePerfeito</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sábado → Promoção: "Hoje na barbearia — os primeiros 3 a mencionar este story ganham brinde especial!"</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="21">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">21</div><div class="weekday-label">Domingo</div></div>
+          <span class="content-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)">Promoção</span>
+        </div>
+        <div class="card-theme">Promoção relâmpago 24h — urgência e escassez</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de promoção com prazo limitado — apenas hoje. Escolher 1 ou 2 produtos com condição especial. Criar urgência real. Publicar de manhã e lembrar à tarde nos Stories.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">HOJE APENAS. ⚡ Por 24 horas, [produto em destaque] tem condição especial na El Vayon. Amanhã já não haverá — é a sério. Encomenda agora pelo WhatsApp: 933 301 330. Entregamos ou podes vir buscar. Não deixes para depois 👇</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#PromoçãoRelâmpago #ElVayonCosméticos #NamibeAngola #OfertaLimitada #HojeApenas #CosméticosNamibe #NãoPerde</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Domingo → Depoimento + contador: "Só até à meia-noite!" — reforça a urgência da promoção com contagem</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEMANA 4 -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-num">04</div>
+    <div class="week-info">
+      <h2>Semana 4 — Conversão</h2>
+      <p>Dias 22 ao 30 · Fechar o ciclo e preparar o mês 2</p>
+    </div>
+    <div class="week-divider"></div>
+  </div>
+  <div class="phase-banner phase-4">Fase: Age agora — Depoimentos, CTAs directos, ofertas de fim de mês e envolver a comunidade</div>
+  <div class="days-grid">
+
+    <div class="day-card" data-day="22">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">22</div><div class="weekday-label">Segunda</div></div>
+          <span class="content-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)">Marca</span>
+        </div>
+        <div class="card-theme">Depoimento real — a voz do cliente conta mais</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Partilhar feedback real de cliente (com permissão). Pode ser screenshot de WhatsApp, vídeo de depoimento ou cartão com citação. Autenticidade é tudo aqui.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Nada nos enche mais o coração do que isto. 💛 Quando um cliente sai satisfeito, sabemos que estamos no caminho certo. Este feedback é a nossa maior motivação para continuar a fazer melhor todos os dias. Obrigado pela confiança.</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ClienteSatisfeito #ElVayonCosméticos #Depoimento #NamibeAngola #AtendimentoDeExcelência #BelezaAngola</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Segunda → Motivação: "A beleza que cultivamos por fora começa no cuidado que temos connosco." ✨</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="23">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">23</div><div class="weekday-label">Terça</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Kit sugerido — a combinação perfeita para ela</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Criar um "kit sugerido" com 3 produtos complementares — ex: perfume INUKA + creme corporal + baton. Mostrar como funcionam juntos. Pode ser uma ideia de prenda também.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">A combinação perfeita não existe? Existe, sim — e nós encontrámos. 💛✨ Kit El Vayon do momento: 🌸 Perfume INUKA + 🧴 Creme Perfumado + 💄 Baton Avon. Uma rotina de beleza completa num só lugar. Pergunta pelo preço: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#KitBeauty #ElVayonCosméticos #ComboPerfecto #INUKA #Avon #NamibeAngola #RotinaDeBeleza #PrendaPerfeita</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Terça → Dica: "Como montar a tua rotina de beleza em 3 passos — El Vayon tem tudo o que precisas"</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="24">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">24</div><div class="weekday-label">Quarta</div></div>
+          <span class="content-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)">Engajamento</span>
+        </div>
+        <div class="card-theme">"Marca alguém que merece um mimo" — viral local</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de engajamento viral — pedir para marcar um amigo que merece ser presenteado. Quem marcar entra em sorteio ou ganha algo simbólico. Alcança pessoas fora dos seguidores actuais.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Toda a gente tem aquela amiga que merece ser mimada. 💛 Marca ela aqui em baixo — porque merecer é pouco! Quem marcar mais amigos até sexta concorre a [brinde/desconto especial] na El Vayon. É simples, é rápido e podes fazer alguém muito feliz. 👇 Vai!</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#MarcaUmAmigo #ElVayonCosméticos #NamibeAngola #Mimos #PresenteiaAlguém #BelezaNamibe #Sorteio</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quarta → Enquete: "Preferes receber perfume ou tratamento de beleza como prenda?" — lança conversa sobre presentes</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="25">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">25</div><div class="weekday-label">Quinta</div></div>
+          <span class="content-tag" style="background:var(--tag-servico-bg);color:var(--tag-servico-text)">Serviço</span>
+        </div>
+        <div class="card-theme">Nail + Barbearia — o dia completo na El Vayon</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post mostrando que a El Vayon serve tanto homens como mulheres — a ideia de vir em casal, família ou amigos e todos saírem tratados. Humaniza e alarga o público.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Ela fez as unhas. Ele cortou o cabelo. Os dois saíram da El Vayon a brilhar. ✨💅✂️ Na nossa loja, toda a gente encontra o seu canto. Marcas e serviços para ele e para ela — porque a beleza não tem género. Venham juntos: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #NailEBarbearia #NamibeAngola #BeautyParaTodos #CasalNamibe #BelezaSemFronteiras</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Quinta → Destaque: "Sabia que podes agendar nail e barbearia no mesmo dia? WhatsApp: 933 301 330"</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="26">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">26</div><div class="weekday-label">Sexta</div></div>
+          <span class="content-tag" style="background:var(--tag-produto-bg);color:var(--tag-produto-text)">Produto</span>
+        </div>
+        <div class="card-theme">Review ao vivo — profissional testa produto</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Vídeo curto e autêntico de alguém da equipa a experimentar um produto ao vivo — aplicar creme, cheirar perfume, mostrar textura. Reacção honesta. Muito eficaz no TikTok.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Testámos por ti — e não conseguimos parar de usar. 🌟 [Nome do produto] da [Marca] é exactamente o que promete: [benefício principal]. A textura, o cheiro, o resultado — tudo impecável. Disponível na El Vayon. Encomenda: 933 301 330</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ReviewProduto #ElVayonCosméticos #TestamosParaTi #HonestoReview #NamibeAngola #CosméticosAngola #ProdutoDoMes</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sexta → Bastidores: "Sexta de preparações! Estamos prontos para te receber amanhã." — vídeo descontraído</div>
+        <div class="platforms"><span class="plat">TK</span><span class="plat">IG</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="27">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">27</div><div class="weekday-label">Sábado</div></div>
+          <span class="content-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)">Promoção</span>
+        </div>
+        <div class="card-theme">Oferta especial de fim de mês — últimos dias</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Promoção de fim de mês. Criar a sensação de que é a última oportunidade antes de o mês acabar. Pode ser desconto, brinde, entrega grátis — o que for viável para a El Vayon.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">O mês está a acabar — e nós queremos celebrar contigo! 🎉 Nos últimos dias do mês, temos uma condição especial para quem nos visitar ou encomendar pelo WhatsApp. Não há razão para esperar. Fala connosco: 933 301 330 📦 Entregamos no Namibe</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#FimDeMes #ElVayonCosméticos #OfertaEspecial #NamibeAngola #ÚltimaChance #PromoçãoAngola #CosméticosNamibe</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Sábado → Promoção: Contador de dias restantes + produto em destaque com preço especial</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="28">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">28</div><div class="weekday-label">Domingo</div></div>
+          <span class="content-tag" style="background:var(--tag-marca-bg);color:var(--tag-marca-text)">Marca</span>
+        </div>
+        <div class="card-theme">Gratidão — 1 mês de presença digital juntos</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post emocional de agradecimento pela primeira semana/mês digital. Mostrar crescimento, primeiros seguidores, primeiros clientes. Criar sentimento de comunidade.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Um mês. E que mês! 🙏✨ Quando começámos a nossa jornada digital, não sabíamos o que esperar. Mas vocês — os primeiros a seguir, a comentar, a confiar — tornaram tudo real. Obrigado. Do fundo do coração. A El Vayon existe por vocês e para vocês. O melhor ainda está a vir. 💛</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #1MêsDigital #Gratidão #NamibeAngola #ObrigadoNamibe #EssênciasSublime #Comunidade</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Domingo → Depoimento: Faz um resumo do mês em stories — números, momentos, agradecimentos</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="29">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">29</div><div class="weekday-label">Segunda</div></div>
+          <span class="content-tag" style="background:var(--tag-engaja-bg);color:var(--tag-engaja-text)">Engajamento</span>
+        </div>
+        <div class="card-theme">"O que queres ver no mês 2?" — a audiência decide</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de envolvimento final — pedir à audiência que sugira conteúdo, produtos ou serviços para o próximo mês. Faz as pessoas sentirem que fazem parte da El Vayon.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">O Mês 2 está a chegar — e queremos que sejas parte dele! 🙌 O que queres ver mais? Mais tutoriais de beleza? Mais produtos? Mais bastidores? Mais promoções? Comenta abaixo com a tua ideia favorita — as mais pedidas entram no calendário do próximo mês! 👇</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #NamibeAngola #Comunidade #TuaOpiniãoImporta #Mês2 #CosméticosNamibe</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Segunda → Caixa de perguntas nos Stories: "O que queres que a El Vayon traga para o mês 2?"</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+    <div class="day-card" data-day="30">
+      <div class="card-top">
+        <div class="day-meta">
+          <div><div class="day-num-badge">30</div><div class="weekday-label">Terça</div></div>
+          <span class="content-tag" style="background:var(--tag-promo-bg);color:var(--tag-promo-text)">Promoção</span>
+        </div>
+        <div class="card-theme">Dia 30 — CTA forte e convite para o mês 2</div>
+      </div>
+      <div class="card-body">
+        <div class="done-overlay"><span class="done-check">✓</span></div>
+        <div class="card-section-label">Descrição</div>
+        <div class="card-desc">Post de encerramento do mês. CTA directo para WhatsApp, visita à loja, agendamento. Oferta especial para quem vier no último dia do mês ou nos primeiros dias do mês 2.</div>
+        <div class="card-section-label">Legenda / Texto do Post</div>
+        <div class="card-caption">Dia 30. O fim do nosso primeiro mês digital — e o início de algo ainda maior. 🚀✨ Para fechar em grande, temos uma oferta especial para quem nos contactar HOJE: [oferta]. E para os que ainda não nos visitaram — o que estão à espera? A El Vayon está no Namibe para ti. 📍 Junto aos Bombeiros, Saidy Mingas II ☎ 933 301 330 | WhatsApp disponível</div>
+        <div class="card-section-label">Hashtags</div>
+        <div class="card-hashtags">#ElVayonCosméticos #Dia30 #NamibeAngola #EssênciasSublime #VisitaNos #Mês2AChegar #CosméticosNamibe #AngolaBeauty</div>
+        <div class="card-section-label">Story do dia</div>
+        <div class="card-story">Domingo → Depoimento + teaser: "Obrigado pelo mês 1. O mês 2 vai ser ainda melhor — fica atento!" 🔥</div>
+        <div class="platforms"><span class="plat">IG</span><span class="plat">FB</span><span class="plat">TK</span></div>
+      </div>
+      <button class="check-btn" onclick="toggleDone(this)">Marcar como feito</button>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<div class="footer">
+  <div class="footer-brand">El Vayon Cosméticos · Essências Sublime</div>
+  <div class="footer-sub">JASP LABS · 934 935 938 · NAMIBE, ANGOLA</div>
+</div>
+
+<script>
+  function toggleDark() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    document.getElementById('theme-icon').textContent = isDark ? '🌙' : '☀️';
+    document.getElementById('theme-label').textContent = isDark ? 'Light' : 'Dark';
+    try { localStorage.setItem('elvayon_theme', isDark ? 'dark' : 'light'); } catch(e) {}
+  }
+
+  function loadTheme() {
+    try {
+      const theme = localStorage.getItem('elvayon_theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-icon').textContent = '🌙';
+        document.getElementById('theme-label').textContent = 'Light';
+      }
+    } catch(e) {}
+  }
+
+  function toggleDone(btn) {
+    const card = btn.closest('.day-card');
+    card.classList.toggle('done');
+    btn.textContent = card.classList.contains('done') ? 'Desmarcar' : 'Marcar como feito';
+    updateProgress();
+    saveState();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.day-card').length;
+    const done = document.querySelectorAll('.day-card.done').length;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('main-progress').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = done + ' de ' + total + ' dias concluídos';
+    document.getElementById('done-count').textContent = done;
+    document.getElementById('nav-fill').style.width = pct + '%';
+    document.getElementById('nav-count').textContent = done + ' / ' + total;
+  }
+
+  function saveState() {
+    const state = {};
+    document.querySelectorAll('.day-card').forEach(c => {
+      state[c.dataset.day] = c.classList.contains('done');
+    });
+    try { localStorage.setItem('elvayon_calendar', JSON.stringify(state)); } catch(e) {}
+  }
+
+  function loadState() {
+    try {
+      const state = JSON.parse(localStorage.getItem('elvayon_calendar') || '{}');
+      document.querySelectorAll('.day-card').forEach(c => {
+        if (state[c.dataset.day]) {
+          c.classList.add('done');
+          c.querySelector('.check-btn').textContent = 'Desmarcar';
+        }
+      });
+    } catch(e) {}
+    updateProgress();
+  }
+
+  loadTheme();
+  loadState();
+</script>
+</body>
+</html>
