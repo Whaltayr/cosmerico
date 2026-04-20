@@ -676,13 +676,13 @@ textarea {
 }
 @keyframes scrollPulse {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-0%);
   }
   50% {
-    transform: translateY(0%);
+    transform: translateY(50%);
   }
   100% {
-    transform: translateY(250%);
+    transform: translateY(100%);
   }
 }
 
@@ -710,41 +710,54 @@ textarea {
   color: var(--gold-2);
 }
 
+/* 1. Outer Container */
 .parceiros__track-wrap {
-  overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
+  display: flex;
+  overflow: hidden; /* Hides the overflow so we only see what's in the box */
+  width: 100%;
 }
+
+/* 2. Inner Groups (The Tracks) */
 .parceiros__track {
   display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  width: max-content;
-  animation: brandScroll 50s linear infinite;
+  gap: 2rem; /* The gap between individual cards */
+  
+  /* Critical trick from video: Add padding equal to the gap size at the end 
+     of the track. This prevents a jump from occurring when the animation loops */
+  padding-right: 6rem; 
+  
+  /* Apply the animation to the group wrappers */
+  animation: spin 25s infinite linear;
 }
-@keyframes brandScroll {
+
+/* 3. The Individual Cards / Logos */
+.brand-logo {
+  /* Prevent the cards from shrinking or growing out of proportion */
+  flex: 0 0 auto; 
+  
+  /* Basic styling for the logos - adjust to your design */
+  background: #f4f4f4;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* 4. The Infinite Animation Keyframes */
+@keyframes spin {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* Shifts the entire group 100% to the left. 
+       Because we duplicated the group, group 2 will flawlessly take its place! */
+    transform: translateX(-100%);
   }
 }
-.parceiros__track:hover {
-  animation-play-state: paused;
-}
+
+
 
 .brand-logo {
   flex-shrink: 0;
@@ -2183,17 +2196,7 @@ textarea {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
+
 
 /* ══════════════════════════════════════════════════
    TRANSIÇÕES GLOBAIS SUAVES
