@@ -320,7 +320,6 @@ textarea {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.5rem;
-  max-width: 1240px;
   margin: 0 auto;
   padding: 0 clamp(1.1rem, 5vw, 2.5rem);
 }
@@ -331,7 +330,7 @@ textarea {
   font-size: 1.45rem;
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: var(--white);
+  color: var(--ink-2);
   transition: color 0.35s;
   white-space: nowrap;
 }
@@ -382,7 +381,7 @@ textarea {
 }
 .nav__link:hover,
 .nav__link--active {
-  color: var(--text);
+  color: var(--textnav__logo-text);
 }
 .nav__link:hover::after,
 .nav__link--active::after {
@@ -413,7 +412,7 @@ textarea {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--text-muted);
   border: 1px solid rgba(253, 252, 249, 0.25);
   padding: 0.42rem 0.95rem;
   border-radius: 2px;
@@ -733,7 +732,7 @@ textarea {
   align-items: center;
   gap: 2.5rem;
   width: max-content;
-  animation: brandScroll 28s linear infinite;
+  animation: brandScroll 50s linear infinite;
 }
 @keyframes brandScroll {
   from {
@@ -1886,6 +1885,7 @@ textarea {
   background: var(--white);
   border: 1px solid var(--border);
   padding: 1.5rem;
+  
 }
 .filtros-sidebar__header {
   display: flex;
@@ -1917,6 +1917,7 @@ textarea {
 
 .filtro-group {
   margin-bottom: 1.5rem;
+
 }
 .filtro-group h3 {
   font-family: var(--sans);
