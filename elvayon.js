@@ -3,8 +3,14 @@
    Nav · Cart · Filters · Services · GSAP · WhatsApp
    ═══════════════════════════════════════════════════ */
 
-gsap.registerPlugin(ScrollTrigger);
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hasGSAP = typeof window.gsap !== "undefined";
+const hasScrollTrigger = typeof window.ScrollTrigger !== "undefined";
+const canAnimate = hasGSAP && !reduced;
+
+if (hasGSAP && hasScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 /* ════════════════════════════════════════════════════
    CART STATE  (shared across both pages via sessionStorage)
@@ -23,15 +29,23 @@ function saveCart() {
   sessionStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 function fmtKz(n) {
-  return "Kz " + Number(n).toLocaleString("pt-AO");
+  return "Kz " + Number(n || 0).toLocaleString("pt-AO");
+}
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 }
 
 /* ── Add to cart ── */
 function addToCart(card) {
-  const id = parseInt(card.dataset.id);
-  const name = card.dataset.name;
-  const price = parseInt(card.dataset.price);
-  const img = card.dataset.img;
+  const id = Number.parseInt(card.dataset.id, 10);
+  const name = card.dataset.name || "Produto";
+  const price = Number.parseInt(card.dataset.price, 10);
+  if (!Number.isFinite(id) || !Number.isFinite(price)) return;
+  const img = card.dataset.img || card.querySelector("img")?.src || "";
   const cat = card.dataset.cat;
   const existing = cart.find((i) => i.id === id);
   if (existing) {
@@ -55,7 +69,7 @@ function addToCart(card) {
     }, 1800);
   }
   /* Badge bounce */
-  if (!reduced) {
+  if (canAnimate) {
     const badge = document.getElementById("cartFabBadge");
     if (badge)
       gsap.fromTo(
@@ -111,10 +125,10 @@ function renderCart() {
       (item) => `
     <div class="cart-item" data-id="${item.id}">
       <div class="cart-item__img">
-        <img src="${item.img}" alt="${item.name}" loading="lazy"/>
+        <img src="${escapeHTML(item.img)}" alt="${escapeHTML(item.name)}" loading="lazy"/>
       </div>
       <div>
-        <p class="cart-item__name">${item.name}</p>
+        <p class="cart-item__name">${escapeHTML(item.name)}</p>
         <p class="cart-item__price">${fmtKz(item.price)}</p>
         <div class="cart-item__qty">
           <button data-action="dec" data-id="${item.id}" aria-label="Diminuir quantidade">−</button>
@@ -122,7 +136,7 @@ function renderCart() {
           <button data-action="inc" data-id="${item.id}" aria-label="Aumentar quantidade">+</button>
         </div>
       </div>
-      <button class="cart-item__rm" data-action="rm" data-id="${item.id}" aria-label="Remover ${item.name}">✕</button>
+      <button class="cart-item__rm" data-action="rm" data-id="${item.id}" aria-label="Remover ${escapeHTML(item.name)}">✕</button>
     </div>
   `,
     )
@@ -131,7 +145,7 @@ function renderCart() {
   /* Bind qty / remove buttons */
   itemsEl.querySelectorAll("[data-action]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const id = parseInt(btn.dataset.id);
+      const id = Number.parseInt(btn.dataset.id, 10);
       const act = btn.dataset.action;
       const idx = cart.findIndex((i) => i.id === id);
       if (idx === -1) return;
@@ -162,9 +176,10 @@ const cartFab = document.getElementById("cartFab");
 const navCartBtn = document.getElementById("navCartBtn");
 
 function openCart() {
-  cartDrawer?.classList.add("open");
-  cartOverlay?.classList.add("open");
-  cartOverlay?.removeAttribute("aria-hidden");
+  if (!cartDrawer || !cartOverlay) return;
+  cartDrawer.classList.add("open");
+  cartOverlay.classList.add("open");
+  cartOverlay.removeAttribute("aria-hidden");
   document.body.style.overflow = "hidden";
 }
 function closeCart() {
@@ -178,6 +193,15 @@ cartFab?.addEventListener("click", openCart);
 navCartBtn?.addEventListener("click", openCart);
 cartClose?.addEventListener("click", closeCart);
 cartOverlay?.addEventListener("click", closeCart);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeCart();
+    menu?.classList.remove("open");
+    burger?.classList.remove("open");
+    burger?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+});
 
 /* ── WhatsApp checkout ── */
 document.getElementById("btnCheckout")?.addEventListener("click", () => {
@@ -187,7 +211,7 @@ document.getElementById("btnCheckout")?.addEventListener("click", () => {
     const input = document.getElementById("clientName");
     if (input) {
       input.focus();
-      if (!reduced)
+      if (canAnimate)
         gsap.fromTo(
           input,
           { x: -6 },
@@ -234,11 +258,17 @@ const burger = document.getElementById("navBurger");
 const menu = document.getElementById("navMenu");
 
 /* Scroll state */
-ScrollTrigger.create({
-  start: "60px top",
-  onEnter: () => nav?.classList.add("scrolled"),
-  onLeaveBack: () => nav?.classList.remove("scrolled"),
-});
+if (hasScrollTrigger) {
+  ScrollTrigger.create({
+    start: "60px top",
+    onEnter: () => nav?.classList.add("scrolled"),
+    onLeaveBack: () => nav?.classList.remove("scrolled"),
+  });
+} else {
+  const setNavState = () => nav?.classList.toggle("scrolled", window.scrollY > 60);
+  setNavState();
+  window.addEventListener("scroll", setNavState, { passive: true });
+}
 
 /* Burger toggle */
 burger?.addEventListener("click", () => {
@@ -247,7 +277,7 @@ burger?.addEventListener("click", () => {
   burger.setAttribute("aria-expanded", String(open));
   document.body.style.overflow = open ? "hidden" : "";
 
-  if (!reduced && open && menu) {
+  if (canAnimate && open && menu) {
     gsap.fromTo(
       menu.querySelectorAll(".nav__link, .nav__cta-mobile"),
       { opacity: 0, y: 16 },
@@ -268,6 +298,7 @@ menu?.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => {
     menu.classList.remove("open");
     burger?.classList.remove("open");
+    burger?.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }),
 );
@@ -275,7 +306,7 @@ menu?.querySelectorAll("a").forEach((a) =>
 /* ════════════════════════════════════════════════════
    FILTER PILLS (home page bestsellers)
 ════════════════════════════════════════════════════ */
-(function initHomeFilers() {
+(function initHomeFilters() {
   const grid = document.getElementById("homeGrid");
   if (!grid) return;
 
@@ -290,7 +321,7 @@ menu?.querySelectorAll("a").forEach((a) =>
         activeBrand === "all" || card.dataset.brand === activeBrand;
       card.classList.toggle("hidden", !(catMatch && brandMatch));
     });
-    if (!reduced) {
+    if (canAnimate) {
       gsap.fromTo(
         cards.filter((c) => !c.classList.contains("hidden")),
         { opacity: 0, y: 18 },
@@ -340,12 +371,20 @@ menu?.querySelectorAll("a").forEach((a) =>
   const grid = document.getElementById("produtosGrid");
   if (!grid) return;
 
+  const PRODUCTS_PER_PAGE = 12;
   const noResults = document.getElementById("noResults");
   const countEl = document.getElementById("produtosCount");
   const clearBtn = document.getElementById("filtrosClear");
   const toggleBtn = document.getElementById("filtrosToggle");
   const sidebar = document.getElementById("filtrosSidebar");
   const countBadge = document.getElementById("filtrosCount");
+  const pagination = document.createElement("nav");
+
+  pagination.className = "prod-pagination";
+  pagination.setAttribute("aria-label", "Paginação dos produtos");
+  grid.insertAdjacentElement("afterend", pagination);
+
+  let currentPage = 1;
 
   function getActiveFilters() {
     const cats = [...document.querySelectorAll('input[name="cat"]:checked')]
@@ -359,48 +398,130 @@ menu?.querySelectorAll("a").forEach((a) =>
     return { cats, brands, sort };
   }
 
-  function applyPageFilters() {
+  function getFilteredSortedCards() {
     const { cats, brands, sort } = getActiveFilters();
-    let cards = [...grid.querySelectorAll(".prod-card")];
+    const cards = [...grid.querySelectorAll(".prod-card")];
 
-    /* Filter */
-    cards.forEach((card) => {
+    const visible = cards.filter((card) => {
       const catOk = cats.length === 0 || cats.includes(card.dataset.cat);
       const brandOk =
         brands.length === 0 || brands.includes(card.dataset.brand);
-      card.classList.toggle("hidden", !(catOk && brandOk));
+      return catOk && brandOk;
     });
 
-    /* Sort */
-    const visible = cards.filter((c) => !c.classList.contains("hidden"));
     visible.sort((a, b) => {
-      if (sort === "price-asc")
-        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
-      if (sort === "price-desc")
-        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
-      if (sort === "name") return a.dataset.name.localeCompare(b.dataset.name);
+      if (sort === "price-asc") {
+        return Number.parseInt(a.dataset.price, 10) - Number.parseInt(b.dataset.price, 10);
+      }
+      if (sort === "price-desc") {
+        return Number.parseInt(b.dataset.price, 10) - Number.parseInt(a.dataset.price, 10);
+      }
+      if (sort === "name") {
+        return (a.dataset.name || "").localeCompare(b.dataset.name || "", "pt-AO");
+      }
       return 0;
     });
-    visible.forEach((card) => grid.appendChild(card));
 
-    /* Count */
+    return { visible, totalCards: cards.length };
+  }
+
+  function renderPagination(totalPages) {
+    pagination.innerHTML = "";
+    pagination.hidden = totalPages <= 1;
+    if (totalPages <= 1) return;
+
+    const makeBtn = (label, page, options = {}) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "prod-pagination__btn";
+      btn.textContent = label;
+      btn.disabled = options.disabled || false;
+      if (options.active) {
+        btn.classList.add("active");
+        btn.setAttribute("aria-current", "page");
+      }
+      btn.addEventListener("click", () => {
+        currentPage = page;
+        applyPageFilters({ keepPage: true, scrollToGrid: true });
+      });
+      return btn;
+    };
+
+    pagination.appendChild(
+      makeBtn("Anterior", Math.max(1, currentPage - 1), {
+        disabled: currentPage === 1,
+      }),
+    );
+
+    const pages = [];
+    for (let page = 1; page <= totalPages; page++) {
+      const nearCurrent = Math.abs(page - currentPage) <= 1;
+      const isEdge = page === 1 || page === totalPages;
+      if (nearCurrent || isEdge) pages.push(page);
+    }
+
+    pages.forEach((page, index) => {
+      if (index > 0 && page - pages[index - 1] > 1) {
+        const dots = document.createElement("span");
+        dots.className = "prod-pagination__dots";
+        dots.textContent = "…";
+        pagination.appendChild(dots);
+      }
+      pagination.appendChild(
+        makeBtn(String(page), page, { active: page === currentPage }),
+      );
+    });
+
+    pagination.appendChild(
+      makeBtn("Próxima", Math.min(totalPages, currentPage + 1), {
+        disabled: currentPage === totalPages,
+      }),
+    );
+  }
+
+  function applyPageFilters(options = {}) {
+    const { cats, brands } = getActiveFilters();
+    const { visible } = getFilteredSortedCards();
+    const totalPages = Math.max(1, Math.ceil(visible.length / PRODUCTS_PER_PAGE));
+
+    if (!options.keepPage) currentPage = 1;
+    currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+
+    const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const pageCards = visible.slice(start, start + PRODUCTS_PER_PAGE);
+
+    [...grid.querySelectorAll(".prod-card")].forEach((card) => {
+      card.classList.add("hidden");
+    });
+
+    visible.forEach((card) => grid.appendChild(card));
+    pageCards.forEach((card) => card.classList.remove("hidden"));
+
     const activeCount = cats.length + brands.length;
     if (countBadge) {
       countBadge.textContent = activeCount;
       countBadge.classList.toggle("show", activeCount > 0);
     }
-    if (countEl) {
-      countEl.textContent =
-        visible.length === 0
-          ? ""
-          : `A mostrar ${visible.length} produto${visible.length !== 1 ? "s" : ""}`;
-    }
-    if (noResults) noResults.hidden = visible.length > 0;
 
-    /* Animate in */
-    if (!reduced) {
+    if (countEl) {
+      if (visible.length === 0) {
+        countEl.textContent = "";
+      } else {
+        const end = Math.min(start + PRODUCTS_PER_PAGE, visible.length);
+        countEl.textContent = `A mostrar ${start + 1}–${end} de ${visible.length} produto${visible.length !== 1 ? "s" : ""}`;
+      }
+    }
+
+    if (noResults) noResults.hidden = visible.length > 0;
+    renderPagination(totalPages);
+
+    if (options.scrollToGrid) {
+      grid.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    }
+
+    if (canAnimate && pageCards.length) {
       gsap.fromTo(
-        visible,
+        pageCards,
         { opacity: 0, y: 20 },
         {
           opacity: 1,
@@ -414,16 +535,14 @@ menu?.querySelectorAll("a").forEach((a) =>
     }
   }
 
-  /* Bind checkboxes + radios */
   document
     .querySelectorAll(
       'input[name="cat"], input[name="brand"], input[name="sort"]',
     )
     .forEach((input) => {
-      input.addEventListener("change", applyPageFilters);
+      input.addEventListener("change", () => applyPageFilters());
     });
 
-  /* Clear */
   function clearFilters() {
     document.querySelectorAll('input[name="cat"]').forEach((i) => {
       i.checked = false;
@@ -435,18 +554,21 @@ menu?.querySelectorAll("a").forEach((a) =>
       'input[name="sort"][value="default"]',
     );
     if (defSort) defSort.checked = true;
+    currentPage = 1;
     applyPageFilters();
   }
+
   clearBtn?.addEventListener("click", clearFilters);
   document
     .getElementById("noResultsClear")
     ?.addEventListener("click", clearFilters);
 
-  /* Mobile sidebar toggle */
   toggleBtn?.addEventListener("click", () => {
     const open = sidebar?.classList.toggle("mobile-open");
     toggleBtn.setAttribute("aria-expanded", String(!!open));
   });
+
+  applyPageFilters();
 })();
 
 /* ════════════════════════════════════════════════════
@@ -471,7 +593,7 @@ document.querySelectorAll(".btn-precos").forEach((btn) => {
     if (!isOpen) {
       target.hidden = false;
       btn.setAttribute("aria-expanded", "true");
-      if (!reduced) {
+      if (canAnimate) {
         gsap.fromTo(
           target,
           { opacity: 0, y: -10 },
@@ -492,7 +614,7 @@ document.querySelectorAll(".btn-precos").forEach((btn) => {
    HERO ENTRANCE ANIMATION
 ════════════════════════════════════════════════════ */
 (function heroIn() {
-  if (reduced) return;
+  if (!canAnimate) return;
   const els = [".hero__tag", ".hero__title", ".hero__sub", ".hero__btns"];
   gsap.set(els, { opacity: 0, y: 28 });
   const tl = gsap.timeline({ delay: 0.15 });
@@ -530,7 +652,7 @@ document.querySelectorAll(".btn-precos").forEach((btn) => {
    SCROLL REVEALS
 ════════════════════════════════════════════════════ */
 function rev(sel, from, to, trigger, start = "top 88%") {
-  if (reduced) return;
+  if (!canAnimate) return;
   const targets =
     typeof sel === "string" ? [...document.querySelectorAll(sel)] : [sel];
   if (!targets.length) return;
@@ -629,7 +751,7 @@ function rev(sel, from, to, trigger, start = "top 88%") {
 ════════════════════════════════════════════════════ */
 (function waIn() {
   const wa = document.querySelector(".wa-float");
-  if (!wa || reduced) return;
+  if (!wa || !canAnimate) return;
   gsap.set(wa, { scale: 0, opacity: 0 });
   gsap.to(wa, {
     scale: 1,
@@ -659,6 +781,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     /* Close mobile menu */
     menu?.classList.remove("open");
     burger?.classList.remove("open");
+    burger?.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   });
 });

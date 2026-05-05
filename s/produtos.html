@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos — El Vayon Cosméticos</title>
+  <meta name="description"
+    content="Todos os produtos El Vayon. Skincare, maquilhagem, perfumaria e cabelo das melhores marcas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="elvayon.css" />
+</head>
+
+<body class="page-produtos">
+
+  <!-- ══ NAV (same as home) ════════════════════════ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="El Vayon página inicial">
+        <span class="nav__logo-text"><em>El</em> Vayon</span>
+      </a>
+      <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+        <a href="index.html#parceiros" class="nav__link">Marcas</a>
+        <a href="produtos.html" class="nav__link nav__link--active">Produtos</a>
+        <a href="index.html#servicos" class="nav__link">Serviços</a>
+        <a href="index.html#galeria" class="nav__link">Galeria</a>
+        <a href="index.html#contactos" class="nav__link">Contactos</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="nav__cart-btn" id="navCartBtn" aria-label="Ver carrinho">
+          <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <path d="M13 10a3 3 0 01-6 0" />
+          </svg>
+          <span class="nav__cart-count" id="navCartCount" aria-live="polite">0</span>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false"
+          aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HEADER ═══════════════════════════════ -->
+    <div class="page-header">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Início</a> / <span>Produtos</span></p>
+        <h1 class="page-header__title">Todos os <em>Produtos</em></h1>
+        <p class="page-header__sub">Cosméticos das melhores marcas, entregues em Namibe.</p>
+      </div>
+    </div>
+
+    <!-- ══ PRODUTOS SECÇÃO ═══════════════════════════ -->
+    <section class="produtos-page" aria-label="Catálogo de produtos">
+      <div class="container">
+        <div class="produtos-page__layout">
+
+          <!-- SIDEBAR FILTROS -->
+          <aside class="filtros-sidebar" id="filtrosSidebar" aria-label="Filtros de produtos">
+            <div class="filtros-sidebar__header">
+              <h2>Filtros</h2>
+              <button class="filtros-clear" id="filtrosClear" aria-label="Limpar filtros">Limpar tudo</button>
+            </div>
+
+            <div class="filtro-group">
+              <h3>Categorias</h3>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="perfumaria" /> Perfumaria
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="skincare" /> Skincare (Rosto e Mãos)
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="corpo-banho" /> Corpo e Banho
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="maquilhagem" /> Maquilhagem
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="higiene" /> Higiene Oral e Pessoal
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="cabelo" /> Cuidados Capilares
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="cat" value="outros" /> Acessórios e Outros
+              </label>
+            </div>
+
+            <div class="filtro-group">
+              <h3>Marcas</h3>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="inuka" /> INUKA
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="avon" /> Avon
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="longrich" /> Longrich
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="natura" /> Natura (Tododia)
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="boticario" /> O Boticário
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="paixao" /> Paixão
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="blow-girl" /> Blow Girl
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="dama-prada" /> Dama de Prada
+              </label>
+              <label class="filtro-check">
+                <input type="checkbox" name="brand" value="outros" /> Outras Marcas
+              </label>
+            </div>
+
+            <div class="filtro-group">
+              <h3>Ordenar</h3>
+              <label class="filtro-radio">
+                <input type="radio" name="sort" value="default" checked /> Relevância
+              </label>
+              <label class="filtro-radio">
+                <input type="radio" name="sort" value="price-asc" /> Preço: menor
+              </label>
+              <label class="filtro-radio">
+                <input type="radio" name="sort" value="price-desc" /> Preço: maior
+              </label>
+              <label class="filtro-radio">
+                <input type="radio" name="sort" value="name" /> A → Z
+              </label>
+            </div>
+          </aside>
+
+          <!-- PRODUCTS AREA -->
+          <div class="produtos-page__main">
+            <!-- Mobile filter toggle -->
+            <button class="filtros-toggle" id="filtrosToggle" aria-expanded="false" aria-controls="filtrosSidebar">
+              <svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.5"
+                aria-hidden="true">
+                <path d="M3 5h14M6 10h8M9 15h2" stroke-linecap="round" />
+              </svg>
+              Filtros
+              <span class="filtros-toggle__count" id="filtrosCount"></span>
+            </button>
+
+            <p class="produtos-count" id="produtosCount" aria-live="polite">A mostrar todos os produtos</p>
+
+            <div class="prod-grid prod-grid--page" id="produtosGrid">
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="inuka" data-id="101"
+                data-name="Perfume INUKA 30ml (Clássico)" data-price="20000" data-img="img/inuka_classic.30ml.webp"
+                data-desc="Perfume INUKA 30ml (Clássico)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_classic.30ml.webp" alt="Perfume INUKA 30ml (Clássico)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd" aria-label="Adicionar ao carrinho"><svg
+                      viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume INUKA 30ml (Clássico)</h3>
+                  <p class="prod-card__price">Kz 20.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="inuka" data-id="102"
+                data-name="Perfume INUKA 30ml (Linha Exclusivo)" data-price="25000"
+                data-img="img/inuka_exclusive_30ml.jfif" data-desc="Perfume INUKA 30ml (Linha Exclusivo)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_exclusive_30ml.jfif" alt="Perfume INUKA 30ml (Linha Exclusivo)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume INUKA 30ml (Exclusivo)</h3>
+                  <p class="prod-card__price">Kz 25.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="inuka" data-id="103"
+                data-name="Perfume Modern-Me INUKA" data-price="20000"
+                data-img="img/inuka_modern_men_30ml.webp"
+                data-desc="Perfume Modern-Me INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_modern_men_30ml.webp" alt="Perfume Modern-Me INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Modern-Me INUKA</h3>
+                  <p class="prod-card__price">Kz 20.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="inuka" data-id="104"
+                data-name="Perfume Hope INUKA" data-price="20000" data-img="img/inuka_hope_30ml.webp"
+                data-desc="Perfume Hope INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_hope_30ml.webp" alt="Perfume Hope INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Hope INUKA</h3>
+                  <p class="prod-card__price">Kz 20.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="inuka" data-id="105"
+                data-name="Água Colônia da INUKA" data-price="13000" data-img="img/inuka_agua_de_colonia.avif"
+                data-desc="Água Colônia da INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_agua_de_colonia.avif" alt="Água Colônia da INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Água Colônia da INUKA</h3>
+                  <p class="prod-card__price">Kz 13.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="106" data-name="Creme da INUKA"
+                data-price="14000" data-img="img/inuka_creme.webp" data-desc="Creme da INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_creme.webp" alt="Creme da INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme da INUKA</h3>
+                  <p class="prod-card__price">Kz 14.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="107"
+                data-name="Creme de mão Peach INUKA (30ml)" data-price="5000" data-img="img/inuka_creme_peach.webp"
+                data-desc="Creme de mão Peach INUKA (30ml)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_creme_peach.webp" alt="Creme de mão Peach INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme de mão Peach INUKA</h3>
+                  <p class="prod-card__price">Kz 5.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="108"
+                data-name="Skin Care Daily Facial INUKA" data-price="20000"
+                data-img="img/inuka_skin_care.webp"
+                data-desc="Skin Care Daily Facial INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_skin_care.webp" alt="Skin Care Daily Facial INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Skin Care Daily Facial</h3>
+                  <p class="prod-card__price">Kz 20.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="109"
+                data-name="Skin Care Non-Greasy INUKA" data-price="25000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Skin Care Non-Greasy INUKA">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                    alt="Skin Care Non-Greasy INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Skin Care Non-Greasy</h3>
+                  <p class="prod-card__price">Kz 25.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="110" data-name="Flawless INUKA"
+                data-price="18500" data-img="img/inuka_flawless.jpg" data-desc="Flawless INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_flawless.jpg" alt="Flawless INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Flawless INUKA</h3>
+                  <p class="prod-card__price">Kz 18.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="111" data-name="Gel Aloe Vera"
+                data-price="4000" data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Gel Aloe Vera">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Gel Aloe Vera"
+                    loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Gel Aloe Vera</h3>
+                  <p class="prod-card__price">Kz 4.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="112"
+                data-name="Natural Skin Repair Oil" data-price="18000" data-img="img/inuka_skin_repair_oil.webp"
+                data-desc="Natural Skin Repair Oil">
+                <div class="prod-card__img">
+                  <img src="img/inuka_skin_repair_oil.webp" alt="Natural Skin Repair Oil" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Natural Skin Repair Oil</h3>
+                  <p class="prod-card__price">Kz 18.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="113" data-name="Óleo do INUKA"
+                data-price="14000" data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Óleo do INUKA">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Óleo do INUKA"
+                    loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Óleo do INUKA</h3>
+                  <p class="prod-card__price">Kz 14.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="inuka" data-id="114"
+                data-name="Bath Salts INUKA (390g)" data-price="14000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Bath Salts INUKA (390g)">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Bath_Salts_390g.avif"
+                    alt="Bath Salts INUKA (390g)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Bath Salts INUKA (390g)</h3>
+                  <p class="prod-card__price">Kz 14.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="inuka" data-id="115"
+                data-name="Bath Salts INUKA (350g)" data-price="12000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Bath Salts INUKA (350g)">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                    alt="Bath Salts INUKA (350g)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Bath Salts INUKA (350g)</h3>
+                  <p class="prod-card__price">Kz 12.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="inuka" data-id="116"
+                data-name="Bath Salt INUKA (220g)" data-price="10500"
+                data-img="img/inuka_body_salts_220.jpg"
+                data-desc="Bath Salt INUKA (220g)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_body_salts_220.jpg" alt="Bath Salt INUKA (220g)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Bath Salt INUKA (220g)</h3>
+                  <p class="prod-card__price">Kz 10.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="inuka" data-id="117"
+                data-name="Epsom Soak INUKA" data-price="14000"
+                data-img="img/inuka_epson_shave.webp"
+                data-desc="Epsom Soak INUKA">
+                <div class="prod-card__img">
+                  <img src="img/inuka_epson_shave.webp" alt="Epsom Soak INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Epsom Soak INUKA</h3>
+                  <p class="prod-card__price">Kz 14.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="118"
+                data-name="After Shave INUKA (Pós-barba)" data-price="12500" data-img="img/inuka_after_shave.jfif"
+                data-desc="After Shave INUKA (Pós-barba)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_after_shave.jfif" alt="After Shave INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">After Shave INUKA</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="cabelo" data-brand="inuka" data-id="119"
+                data-name="Condicionador MOHLOLO" data-price="12000" data-img="img/INUKA_Mohlolo_Conditioner.jpg"
+                data-desc="Condicionador MOHLOLO">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Mohlolo_Conditioner.jpg" alt="Condicionador MOHLOLO" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">Condicionador MOHLOLO</h3>
+                  <p class="prod-card__price">Kz 12.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="cabelo" data-brand="inuka" data-id="120"
+                data-name="MOHLOLO Natural Organic" data-price="12000" data-img="img/INUKA_Mohlolo_Natural_Organic.jpg"
+                data-desc="MOHLOLO Natural Organic">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Mohlolo_Natural_Organic.jpg" alt="MOHLOLO Natural Organic" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">MOHLOLO Natural Organic</h3>
+                  <p class="prod-card__price">Kz 12.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="121"
+                data-name="Hydrating Hand Cream Avon" data-price="5750"
+                data-img="img/Avon_Hydrating_Hand_Cream.jpg"
+                data-desc="Hydrating Hand Cream Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Hydrating_Hand_Cream.jpg" alt="Hydrating Hand Cream Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Hydrating Hand Cream</h3>
+                  <p class="prod-card__price">Kz 5.750</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="122"
+                data-name="Power Stay Avon" data-price="21000" data-img="img/Avon_Power_Stay_Makeup.webp"
+                data-desc="Power Stay Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Power_Stay_Makeup.webp" alt="Power Stay Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Power Stay Avon</h3>
+                  <p class="prod-card__price">Kz 21.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="123"
+                data-name="Legendary Lengths (Rímel)" data-price="11000"
+                data-img="img/Avon_Legendary_Lengths_Mascara.webp"
+                data-desc="Legendary Lengths (Rímel)">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Legendary_Lengths_Mascara.webp" alt="Legendary Lengths (Rímel)" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Legendary Lengths</h3>
+                  <p class="prod-card__price">Kz 11.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="124"
+                data-name="Lash Primer Avon" data-price="8000" data-img="img/Avon_Lash_Primer.webp"
+                data-desc="Lash Primer Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Lash_Primer.webp" alt="Lash Primer Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Lash Primer Avon</h3>
+                  <p class="prod-card__price">Kz 8.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="125"
+                data-name="Lip Balm Avon" data-price="5000" data-img="img/Avon_Lip_Balm.webp" data-desc="Lip Balm Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Lip_Balm.webp" alt="Lip Balm Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Lip Balm</h3>
+                  <p class="prod-card__price">Kz 5.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="126" data-name="Lip Avon"
+                data-price="10000" data-img="img/Avon_Lipstick.webp" data-desc="Lip Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Lipstick.webp" alt="Lip Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Lip Avon</h3>
+                  <p class="prod-card__price">Kz 10.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="127"
+                data-name="Protetor Solar Avon (135ml)" data-price="24500" data-img="img/Avon_Hydrating_Face_Cream.jpg"
+                data-desc="Protetor Solar Avon (135ml)">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Care_Sun_135ml.webp" alt="Protetor Solar Avon (135ml)" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Protetor Solar (135ml)</h3>
+                  <p class="prod-card__price">Kz 24.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="128"
+                data-name="Creme Hydrating Face Cream" data-price="9800" data-img="img/Avon_Hydrating_Face_Cream.jpg"
+                data-desc="Creme Hydrating Face Cream">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Hydrating_Face_Cream.jpg" alt="Creme Hydrating Face Cream" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme Hydrating Face Cream</h3>
+                  <p class="prod-card__price">Kz 9.800</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="129"
+                data-name="Creme Nourishing Avon Care" data-price="9800" data-img="img/avon_care_nourisment.jpg"
+                data-desc="Creme Nourishing Avon Care">
+                <div class="prod-card__img">
+                  <img src="img/avon_care_nourisment.jpg" alt="Creme Nourishing Avon Care" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme Nourishing Avon Care</h3>
+                  <p class="prod-card__price">Kz 9.800</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="130"
+                data-name="Avon Nourishing Face Mask" data-price="8950" data-img="img/Avon_Nourishing_Face_Mask.jpg"
+                data-desc="Avon Nourishing Face Mask">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Nourishing_Face_Mask.jpg" alt="Avon Nourishing Face Mask" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Nourishing Face Mask</h3>
+                  <p class="prod-card__price">Kz 8.950</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="131"
+                data-name="Avon Clearskin Mask 75ml" data-price="10750" data-img="img/Avon_Clearskin_Mask_75ml.jpg"
+                data-desc="Avon Clearskin Mask 75ml">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Clearskin_Mask_75ml.jpg" alt="Avon Clearskin Mask 75ml" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Clearskin Mask 75ml</h3>
+                  <p class="prod-card__price">Kz 10.750</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="132"
+                data-name="Clearskin Mask 100ml" data-price="12500" data-img="img/Avon_Clearskin_Mask_100ml.webp"
+                data-desc="Clearskin Mask 100ml">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Clearskin_Mask_100ml.webp" alt="Clearskin Mask 100ml" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Clearskin Mask 100ml</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="133"
+                data-name="Avon Clearskin Toner 100ml" data-price="9500" data-img="img/Avon_Clearskin_Toner_100ml.jpg"
+                data-desc="Avon Clearskin Toner 100ml">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Clearskin_Toner_100ml.jpg" alt="Avon Clearskin Toner 100ml" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Clearskin Toner 100ml</h3>
+                  <p class="prod-card__price">Kz 9.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="134"
+                data-name="Avon Clearskin Toner" data-price="8000" data-img="img/Avon_Clearskin_Toner.webp"
+                data-desc="Avon Clearskin Toner">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Clearskin_Toner.webp" alt="Avon Clearskin Toner" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Clearskin Toner</h3>
+                  <p class="prod-card__price">Kz 8.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="135"
+                data-name="Avon Clearskin Blemish" data-price="12500" data-img="img/Avon_Clearskin_Blemish.webp"
+                data-desc="Avon Clearskin Blemish">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Clearskin_Blemish.webp" alt="Avon Clearskin Blemish" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Clearskin Blemish</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="136"
+                data-name="Avon Nutraeffects Soothe" data-price="12500" data-img="img/Avon_Nutraeffects_Soothe.webp"
+                data-desc="Avon Nutraeffects Soothe">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Nutraeffects_Soothe.webp" alt="Avon Nutraeffects Soothe" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Nutraeffects Soothe</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="137"
+                data-name="Avon Anew Purifying 150ml" data-price="11750" data-img="img/Avon_Anew_Purifying_150ml.jpg"
+                data-desc="Avon Anew Purifying 150ml">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Anew_Purifying_150ml.jpg" alt="Avon Anew Purifying 150ml" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Anew Purifying 150ml</h3>
+                  <p class="prod-card__price">Kz 11.750</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="138"
+                data-name="Avon Makeup Remover" data-price="7000" data-img="img/Avon_Makeup_Remover.jpg"
+                data-desc="Avon Makeup Remover">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Makeup_Remover.jpg" alt="Avon Makeup Remover" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Makeup Remover</h3>
+                  <p class="prod-card__price">Kz 7.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="139"
+                data-name="Protetor Solar Avon (150ml)" data-price="29000"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Protetor Solar Avon (150ml)">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Care_Sun_150ml.jpg"
+                    alt="Protetor Solar Avon (150ml)" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Protetor Solar (150ml)</h3>
+                  <p class="prod-card__price">Kz 29.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="avon" data-id="140"
+                data-name="Sabonete da Avon" data-price="5500"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Sabonete da Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Soap_Bar.jpg"
+                    alt="Sabonete da Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Sabonete da Avon</h3>
+                  <p class="prod-card__price">Kz 5.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="avon" data-id="141"
+                data-name="Avon Senses (500ml)" data-price="10500"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Avon Senses (500ml)">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Senses_500ml.webp"
+                    alt="Avon Senses (500ml)" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Avon Senses (500ml)</h3>
+                  <p class="prod-card__price">Kz 10.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="avon" data-id="142"
+                data-name="Roll-On Avon Imari" data-price="5200"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Roll-On Avon Imari">
+                <div class="prod-card__img">
+                  <img src="img/Avon_imari_roll-on.jpg"
+                    alt="Roll-On Avon Imari" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Roll-On Avon Imari</h3>
+                  <p class="prod-card__price">Kz 5.200</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="cabelo" data-brand="avon" data-id="143"
+                data-name="Hair Protection Avon" data-price="4800"
+                data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
+                data-desc="Hair Protection Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Hair_Protection.jpg"
+                    alt="Hair Protection Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">Hair Protection Avon</h3>
+                  <p class="prod-card__price">Kz 4.800</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="avon" data-id="144" data-name="Sacola Avon"
+                data-price="1000" data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Sacola Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Shopping_Bag.jpg" alt="Sacola Avon"
+                    loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Sacola Avon</h3>
+                  <p class="prod-card__price">Kz 1.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="longrich" data-id="145"
+                data-name="Cálcio do Longrich" data-price="14900"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Cálcio do Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Calcium_Tablets.webp"
+                    alt="Cálcio do Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Cálcio do Longrich</h3>
+                  <p class="prod-card__price">Kz 14.900</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="higiene" data-brand="longrich" data-id="146"
+                data-name="Pasta de dente Longrich (100g)" data-price="3000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Pasta de dente Longrich (100g)">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Toothpaste _100g.webp"
+                    alt="Pasta de dente Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Higiene</span>
+                  <h3 class="prod-card__name">Pasta de dente (100g)</h3>
+                  <p class="prod-card__price">Kz 3.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="higiene" data-brand="longrich" data-id="147"
+                data-name="Pasta de dente Longrich (200g)" data-price="7700"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Pasta de dente Longrich (200g)">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Toothpaste_200g.jpeg"
+                    alt="Pasta de dente Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Higiene</span>
+                  <h3 class="prod-card__name">Pasta de dente (200g)</h3>
+                  <p class="prod-card__price">Kz 7.700</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="higiene" data-brand="longrich" data-id="148"
+                data-name="Escova Longrich" data-price="1600"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Escova Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Toothbrush.webp"
+                    alt="Escova Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Higiene</span>
+                  <h3 class="prod-card__name">Escova Longrich</h3>
+                  <p class="prod-card__price">Kz 1.600</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="higiene" data-brand="longrich" data-id="149"
+                data-name="Anti-transpirante Longrich" data-price="5250"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Anti-transpirante Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Antiperspirant_Dew.jpg"
+                    alt="Anti-transpirante Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Higiene</span>
+                  <h3 class="prod-card__name">Anti-transpirante</h3>
+                  <p class="prod-card__price">Kz 5.250</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="longrich" data-id="150"
+                data-name="Loção de mão Hand Cream Longrich" data-price="4800"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Loção de mão Hand Cream Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Hand_Cream.webp"
+                    alt="Loção de mão Hand Cream" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Hand Cream Longrich</h3>
+                  <p class="prod-card__price">Kz 4.800</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="longrich" data-id="151"
+                data-name="Óleo Longrich" data-price="3600"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Óleo Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Oil.jpg" alt="Óleo Longrich"
+                    loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Óleo Longrich</h3>
+                  <p class="prod-card__price">Kz 3.600</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="longrich" data-id="152"
+                data-name="Repellent Mosquito Longrich" data-price="5250"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Repellent Mosquito Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Mosquito_Repellent.jpg"
+                    alt="Repellent Mosquito Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Repellent Mosquito</h3>
+                  <p class="prod-card__price">Kz 5.250</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="longrich" data-id="153"
+                data-name="Rejuvenating Longrich" data-price="5100"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Rejuvenating Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_Rejuvenating_Body_Cream.webp"
+                    alt="Rejuvenating Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Rejuvenating Longrich</h3>
+                  <p class="prod-card__price">Kz 5.100</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="longrich" data-id="154"
+                data-name="SOS Longrich" data-price="5700"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="SOD Longrich">
+                <div class="prod-card__img">
+                  <img src="img/Longrich_SOD_Cream.webp" alt="SOD Longrich"
+                    loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">SOD Longrich</h3>
+                  <p class="prod-card__price">Kz 5.700</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+                 <article class="prod-card" data-cat="skincare" data-brand="longrich" data-id="150"
+                data-name="Loção de mão Hand Cream Longrich" data-price="4800"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Loção de mão Hand Cream Longrich">
+                <div class="prod-card__img">
+                  <img src="img/longrich_siper.jpeg"
+                    alt="Loção de mão Hand Cream" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Baohetang Cordyceps Militares Capsules</h3>
+                  <p class="prod-card__price">Kz 104.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- <article class="prod-card" data-cat="outros" data-brand="longrich" data-id="155"
+                data-name="Diário Longrich" data-price="1250"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Diário Longrich">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                    alt="Diário Longrich" loading="lazy" />
+                  <div class="prod-card__badge">Longrich</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Diário Longrich</h3>
+                  <p class="prod-card__price">Kz 1.250</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article> -->
+
+              <!-- ══ TODODIA (NATURA) ══════════════════════════════ -->
+              <article class="prod-card" data-cat="skincare" data-brand="natura" data-id="156"
+                data-name="Creme Corporal Tododia" data-price="22500"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Creme Corporal Tododia">
+                <div class="prod-card__img">
+                  <img src="img/Natura_Tododia_Creme_Corporal.avif"
+                    alt="Creme Corporal Tododia" loading="lazy" />
+                  <div class="prod-card__badge">Natura</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme Corporal Tododia</h3>
+                  <p class="prod-card__price">Kz 22.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ PAIXÃO ══════════════════════════════ -->
+              <article class="prod-card" data-cat="corpo-banho" data-brand="paixao" data-id="157"
+                data-name="Óleo Paixão" data-price="7750"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Óleo Paixão">
+                <div class="prod-card__img">
+                  <img src="img/Oleo Paixa_.webp"
+                    alt="Óleo Paixão" loading="lazy" />
+                  <div class="prod-card__badge">Paixão</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Óleo Paixão</h3>
+                  <p class="prod-card__price">Kz 7.750</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ BLOW GIRL ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="blow-girl" data-id="158"
+                data-name="Body Splash Blow Girl" data-price="21000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Body Splash Blow Girl">
+                <div class="prod-card__img">
+                  <img src="img/Blow_Girl_Body_Splash.webp"
+                    alt="Body Splash Blow Girl" loading="lazy" />
+                  <div class="prod-card__badge">Blow Girl</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Body Splash Blow Girl</h3>
+                  <p class="prod-card__price">Kz 21.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ O BOTICÁRIO ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="boticario" data-id="159"
+                data-name="Perfume Floratta Blue" data-price="28000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Perfume Floratta Blue">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                    alt="Perfume Floratta Blue" loading="lazy" />
+                  <div class="prod-card__badge">Boticário</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Floratta Blue</h3>
+                  <p class="prod-card__price">Kz 28.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ DAMA DE PRADA ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="dama-prada" data-id="160"
+                data-name="Perfume Dama de Prada" data-price="25000" data-img="img/inuka_classic.30ml.webp"
+                data-desc="Perfume Dama de Prada">
+                <div class="prod-card__img">
+                  <img src="img/inuka_classic.30ml.webp" alt="Perfume Dama de Prada" loading="lazy" />
+                  <div class="prod-card__badge">Dama de Prada</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Dama de Prada</h3>
+                  <p class="prod-card__price">Kz 25.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ OUTRAS MARCAS ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="outros" data-id="161"
+                data-name="Perfume Billion Woman" data-price="16000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Perfume Billion Woman">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                    alt="Perfume Billion Woman" loading="lazy" />
+                  <div class="prod-card__badge">Outros</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none"
+                      width="16" stroke="currentColor" stroke-width="1.8">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Billion Woman</h3>
+                  <p class="prod-card__price">Kz 16.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ INUKA AMBIENTE ══════════════════════════════ -->
+              <article class="prod-card" data-cat="outros" data-brand="inuka" data-id="162"
+                data-name="Room Mist INUKA" data-price="13000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Room Mist INUKA">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Room Mist INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Room Mist INUKA</h3>
+                  <p class="prod-card__price">Kz 13.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="inuka" data-id="163"
+                data-name="Room Reed Diffuser INUKA" data-price="20000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Room Reed Diffuser INUKA">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Room Reed Diffuser INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Room Reed Diffuser INUKA</h3>
+                  <p class="prod-card__price">Kz 20.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="inuka" data-id="164"
+                data-name="Lime Basil & Mandarin INUKA" data-price="6000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Lime Basil & Mandarin INUKA">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Lime Basil &amp; Mandarin INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Lime Basil &amp; Mandarin INUKA</h3>
+                  <p class="prod-card__price">Kz 6.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ MOHLOLO (INUKA) extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="cabelo" data-brand="inuka" data-id="165"
+                data-name="Mohlolo Nourishing INUKA" data-price="12000"
+                data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
+                data-desc="Mohlolo Nourishing INUKA">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Mohlolo_Nourishing.avif" alt="Mohlolo Nourishing INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">Mohlolo Nourishing INUKA</h3>
+                  <p class="prod-card__price">Kz 12.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="inuka" data-id="166"
+                data-name="Gel Mohlolo da INUKA" data-price="15000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Gel Mohlolo da INUKA">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Mohlolo_Natural_Organic.jpg" alt="Gel Mohlolo da INUKA" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Gel Mohlolo da INUKA</h3>
+                  <p class="prod-card__price">Kz 15.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="cabelo" data-brand="inuka" data-id="167"
+                data-name="Mohlolo Coffee Infused" data-price="12500"
+                data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
+                data-desc="Mohlolo Coffee Infused">
+                <div class="prod-card__img">
+                  <img src="img/inuka_Mohlolo_Coffee_Infused.avif" alt="Mohlolo Coffee Infused" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">Mohlolo Coffee Infused</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="cabelo" data-brand="inuka" data-id="168"
+                data-name="Mohlolo INUKA (Geral)" data-price="12500"
+                data-img="https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=400&q=80"
+                data-desc="Mohlolo INUKA (Geral)">
+                <div class="prod-card__img">
+                  <img src="img/inuka_Mohlolo_Skin_Oil.jpg" alt="Mohlolo INUKA (Geral)" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Cabelo</span>
+                  <h3 class="prod-card__name">Mohlolo INUKA (Geral)</h3>
+                  <p class="prod-card__price">Kz 12.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="inuka" data-id="169"
+                data-name="Health Shield INUKA Mohlolo" data-price="4000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Health Shield INUKA Mohlolo">
+                <div class="prod-card__img">
+                  <img src="img/INUKA_Mohlolo_Natural_Organic.jpg" alt="Health Shield INUKA Mohlolo" loading="lazy" />
+                  <div class="prod-card__badge">INUKA</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Health Shield INUKA Mohlolo</h3>
+                  <p class="prod-card__price">Kz 4.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ AVON extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="maquilhagem" data-brand="avon" data-id="170"
+                data-name="Serum Make Up Care Avon" data-price="17000"
+                data-img="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80"
+                data-desc="Serum Make Up Care Avon">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Serum_Makeup_Care.jfif" alt="Serum Make Up Care Avon" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Serum Make Up Care Avon</h3>
+                  <p class="prod-card__price">Kz 17.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="171"
+                data-name="Daily Hydration Avon Care" data-price="11000"
+                data-img="img/Avon_Care_Daily_Hydration.webp"
+                data-desc="Daily Hydration Avon Care">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Care_Daily_Hydration.webp" alt="Daily Hydration Avon Care" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Daily Hydration Avon Care</h3>
+                  <p class="prod-card__price">Kz 11.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="avon" data-id="172"
+                data-name="Avon Care Lavanda" data-price="10500"
+                data-img="img/Avon_Care_Lavender.webp"
+                data-desc="Avon Care Lavanda">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Care_Lavender.webp" alt="Avon Care Lavanda" loading="lazy" />
+                  <div class="prod-card__badge">Avon</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Avon Care Lavanda</h3>
+                  <p class="prod-card__price">Kz 10.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ TODODIA (NATURA) extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="natura" data-id="173"
+                data-name="Body Splash Tododia" data-price="22000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Body Splash Tododia">
+                <div class="prod-card__img">
+                  <img src="img/Natura_Tododia_Body_Splash.webp" alt="Body Splash Tododia" loading="lazy" />
+                  <div class="prod-card__badge">Natura</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Body Splash Tododia</h3>
+                  <p class="prod-card__price">Kz 22.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="natura" data-id="174"
+                data-name="Sabonete Tododia" data-price="3150"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Sabonete Tododia">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Sabonete Tododia" loading="lazy" />
+                  <div class="prod-card__badge">Natura</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Sabonete Tododia</h3>
+                  <p class="prod-card__price">Kz 3.150</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="natura" data-id="175"
+                data-name="Óleo Tododia" data-price="19900"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Óleo Tododia">
+                <div class="prod-card__img">
+                  <img src="img/Natura_Tododia_Oleo_Seve.jpg" alt="Óleo Tododia" loading="lazy" />
+                  <div class="prod-card__badge">Natura</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Óleo Tododia</h3>
+                  <p class="prod-card__price">Kz 19.900</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ PAIXÃO extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="skincare" data-brand="paixao" data-id="176"
+                data-name="Creme Paixão" data-price="10200"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Creme Paixão">
+                <div class="prod-card__img">
+                  <img src="img/Creme_Paixao_Corpo.webp" alt="Creme Paixão" loading="lazy" />
+                  <div class="prod-card__badge">Paixão</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme Paixão</h3>
+                  <p class="prod-card__price">Kz 10.200</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ BLOW GIRL extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="outros" data-brand="blow-girl" data-id="177"
+                data-name="Gel Aromatizante Blow Girl" data-price="21000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Gel Aromatizante Blow Girl">
+                <div class="prod-card__img">
+                  <img src="img/Blow_Girl_Gel_Aromatizante.webp" alt="Gel Aromatizante Blow Girl" loading="lazy" />
+                  <div class="prod-card__badge">Blow Girl</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Gel Aromatizante Blow Girl</h3>
+                  <p class="prod-card__price">Kz 21.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="blow-girl" data-id="178"
+                data-name="Hot Blow Girl" data-price="22500"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Hot Blow Girl">
+                <div class="prod-card__img">
+                  <img src="img/Blow_Girl_Gel_Aromatizante.webp" alt="Hot Blow Girl" loading="lazy" />
+                  <div class="prod-card__badge">Blow Girl</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Hot Blow Girl</h3>
+                  <p class="prod-card__price">Kz 22.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ O BOTICÁRIO extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="skincare" data-brand="boticario" data-id="179"
+                data-name="Loção Deleite O Boticário" data-price="23000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Loção Deleite O Boticário">
+                <div class="prod-card__img">
+                  <img src="img/Boticario_Cuide-se_Bem_Deleite_Locao.avif" alt="Loção Deleite O Boticário" loading="lazy" />
+                  <div class="prod-card__badge">O Boticário</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Loção Deleite O Boticário</h3>
+                  <p class="prod-card__price">Kz 23.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="boticario" data-id="180"
+                data-name="Body Splash O Boticário" data-price="23000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Body Splash O Boticário">
+                <div class="prod-card__img">
+                  <img src="img/Boticario_Body_Splash.webp" alt="Body Splash O Boticário" loading="lazy" />
+                  <div class="prod-card__badge">O Boticário</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Body Splash O Boticário</h3>
+                  <p class="prod-card__price">Kz 23.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ DAMA DE PRADA extras ══════════════════════════════ -->
+              <article class="prod-card" data-cat="skincare" data-brand="dama-prada" data-id="181"
+                data-name="Loção Dama de Prada" data-price="10200"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Loção Dama de Prada">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Loção Dama de Prada" loading="lazy" />
+                  <div class="prod-card__badge">Dama de Prada</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Loção Dama de Prada</h3>
+                  <p class="prod-card__price">Kz 10.200</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="dama-prada" data-id="182"
+                data-name="Loção de Mão Dama de Prada" data-price="6250"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Loção de Mão Dama de Prada">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Loção de Mão Dama de Prada" loading="lazy" />
+                  <div class="prod-card__badge">Dama de Prada</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Loção de Mão Dama de Prada</h3>
+                  <p class="prod-card__price">Kz 6.250</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="dama-prada" data-id="183"
+                data-name="Óleo Dama de Prada" data-price="11000"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Óleo Dama de Prada">
+                <div class="prod-card__img">
+                  <img src="img/Oleo_Dama_de_Prada.webp" alt="Óleo Dama de Prada" loading="lazy" />
+                  <div class="prod-card__badge">Dama de Prada</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Óleo Dama de Prada</h3>
+                  <p class="prod-card__price">Kz 11.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- ══ OUTRAS MARCAS ══════════════════════════════ -->
+              <article class="prod-card" data-cat="perfumaria" data-brand="outros" data-id="184"
+                data-name="Perfume Yara (Lattafa)" data-price="50000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Perfume Yara (Lattafa)">
+                <div class="prod-card__img">
+                  <img src="img/Yara_Lattafa_Perfume.webp" alt="Perfume Yara (Lattafa)" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Yara (Lattafa)</h3>
+                  <p class="prod-card__price">Kz 50.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="outros" data-id="185"
+                data-name="Perfume Victory (Al-Rehab)" data-price="41000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Perfume Victory (Al-Rehab)">
+                <div class="prod-card__img">
+                  <img src="img/Victory_Perfume_Al_Rehab.jfif" alt="Perfume Victory (Al-Rehab)" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Victory (Al-Rehab)</h3>
+                  <p class="prod-card__price">Kz 41.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="perfumaria" data-brand="outros" data-id="186"
+                data-name="Perfume Hot" data-price="40000"
+                data-img="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80"
+                data-desc="Perfume Hot">
+                <div class="prod-card__img">
+                  <img src="img/Hot_Perfume_Milton_Lloyd.png" alt="Perfume Hot" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Perfumaria</span>
+                  <h3 class="prod-card__name">Perfume Hot</h3>
+                  <p class="prod-card__price">Kz 40.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="maquilhagem" data-brand="outros" data-id="187"
+                data-name="Base Real Matte" data-price="13000"
+                data-img="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80"
+                data-desc="Base Real Matte">
+                <div class="prod-card__img">
+                  <img src="img/Avon_Base_Real_Matte.webp" alt="Base Real Matte" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Maquilhagem</span>
+                  <h3 class="prod-card__name">Base Real Matte</h3>
+                  <p class="prod-card__price">Kz 13.000</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="outros" data-id="188"
+                data-name="Creme Feel" data-price="1800"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Creme Feel">
+                <div class="prod-card__img">
+                  <img src="img/Feel_Body_Cream.jfif" alt="Creme Feel" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Creme Feel</h3>
+                  <p class="prod-card__price">Kz 1.800</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="skincare" data-brand="outros" data-id="189"
+                data-name="Gel de Feel" data-price="2200"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Gel de Feel">
+                <div class="prod-card__img">
+                  <img src="img/Feel_Body_Gel.jfif" alt="Gel de Feel" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Skincare</span>
+                  <h3 class="prod-card__name">Gel de Feel</h3>
+                  <p class="prod-card__price">Kz 2.200</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="corpo-banho" data-brand="outros" data-id="190"
+                data-name="Sabonete de Ovo" data-price="4500"
+                data-img="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80"
+                data-desc="Sabonete de Ovo">
+                <div class="prod-card__img">
+                  <img src="img/Egg_Soap_Skin_Care.jpg" alt="Sabonete de Ovo" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Corpo e Banho</span>
+                  <h3 class="prod-card__name">Sabonete de Ovo</h3>
+                  <p class="prod-card__price">Kz 4.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="outros" data-id="191"
+                data-name="Era Ambientador" data-price="2250"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Era Ambientador">
+                <div class="prod-card__img">
+                  <img src="img/Era_Air_Freshener.jpg" alt="Era Ambientador" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Era Ambientador</h3>
+                  <p class="prod-card__price">Kz 2.250</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <!-- <article class="prod-card" data-cat="outros" data-brand="outros" data-id="192"
+                data-name="Ero Para Carro" data-price="1750"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Ero Para Carro">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Ero Para Carro" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Ero Para Carro</h3>
+                  <p class="prod-card__price">Kz 1.750</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article> -->
+
+              <article class="prod-card" data-cat="outros" data-brand="outros" data-id="193"
+                data-name="Ambiente EYFIH" data-price="14500"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Ambiente EYFIH">
+                <div class="prod-card__img">
+                  <img src="img/EYFIH_Ambiente.jpg" alt="Ambiente EYFIH" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Ambiente EYFIH</h3>
+                  <p class="prod-card__price">Kz 14.500</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+              <article class="prod-card" data-cat="outros" data-brand="outros" data-id="194"
+                data-name="Punhos" data-price="1200"
+                data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80"
+                data-desc="Punhos">
+                <div class="prod-card__img">
+                  <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80" alt="Punhos" loading="lazy" />
+                  <div class="prod-card__badge">Outras Marcas</div>
+                  <button class="prod-card__quick" data-action="quickadd"><svg viewBox="0 0 20 20" fill="none" width="16" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12M4 10h12" /></svg></button>
+                </div>
+                <div class="prod-card__body">
+                  <span class="prod-card__cat">Outros</span>
+                  <h3 class="prod-card__name">Punhos</h3>
+                  <p class="prod-card__price">Kz 1.200</p>
+                  <button class="prod-card__add" data-action="add">Adicionar ao carrinho</button>
+                </div>
+              </article>
+
+            </div>
+
+            <div class="no-results" id="noResults" hidden>
+              <p>Nenhum produto encontrado com estes filtros.</p>
+              <button class="btn-ghost" id="noResultsClear">Limpar filtros</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER (compact) ══════════════════════════ -->
+  <footer class="footer footer--compact" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>© 2025 El Vayon Cosméticos · Namibe, Angola</p>
+        <a href="index.html">← Voltar ao início</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ CARRINHO DRAWER ════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+    <div class="cart-drawer__header">
+      <h2>O seu carrinho</h2>
+      <button class="cart-drawer__close" id="cartClose" aria-label="Fechar carrinho">
+        <svg viewBox="0 0 20 20" fill="none" width="18" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 4l12 12M16 4L4 16" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="cart-drawer__items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 48 48" fill="none" width="44" stroke="currentColor" stroke-width="1" opacity=".2"
+          aria-hidden="true">
+          <circle cx="24" cy="24" r="22" />
+          <path d="M18 20h12M20 16l4-4 4 4M24 28v-8" />
+        </svg>
+        <p>O seu carrinho está vazio.</p>
+      </div>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display:none">
+      <div class="cart-client">
+        <label for="clientName">O seu nome <span aria-hidden="true">*</span></label>
+        <input type="text" id="clientName" placeholder="Ex: Ana Silva" autocomplete="name" aria-required="true" />
+      </div>
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">Kz 0</strong>
+      </div>
+      <button class="btn-checkout" id="btnCheckout">
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" aria-hidden="true">
+          <path
+            d="M14.56 12.07c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.16 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.52.59.18 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.57.21-1.06.14-1.17-.06-.1-.23-.16-.48-.28z" />
+          <path
+            d="M10.02 1.5C5.32 1.5 1.5 5.32 1.5 10.02c0 1.5.4 2.91 1.1 4.12L1.5 18.5l4.46-1.17A8.5 8.5 0 1 0 10.02 1.5z" />
+        </svg>
+        Finalizar pelo WhatsApp
+      </button>
+      <p class="cart-note">A encomenda será confirmada via WhatsApp.</p>
+    </div>
+  </div>
+
+  <!-- Cart FAB -->
+  <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+    <svg viewBox="0 0 20 20" fill="none" width="20" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 002 2h10a2 2 0 002-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="17" y2="6" />
+      <path d="M13 10a3 3 0 01-6 0" />
+    </svg>
+    <span class="cart-fab__badge" id="cartFabBadge" aria-live="polite">0</span>
+  </button>
+
+  <a href="https://wa.me/244933301330" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="22" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+    <span class="wa-float__pulse" aria-hidden="true"></span>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="elvayon.js"></script>
+</body>
+
+</html>
